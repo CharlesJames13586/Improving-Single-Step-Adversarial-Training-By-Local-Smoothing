@@ -23,10 +23,20 @@
 
 # python train.py --attack=fgsm --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=800 --batch_size=128 --grad_input_sum_coeff=0.2 --grad_align_cos_lambda=0.200 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=1000 --start_eval_epoch=0 --seed=0
 # FSGM+RS+GradAlign-AT
-# python train.py --attack=fgsm --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=800 --batch_size=128 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.200 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=1000 --start_eval_epoch=0 --seed=0
+# python train.py --attack=fgsm --fgsm_alpha=2.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=800 --batch_size=128 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.200 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
 # FSGM+RS+G_I_S-AT
-# python train.py --attack=fgsm --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=800 --batch_size=128 --grad_input_sum_coeff=0.2 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=1000 --start_eval_epoch=0 --seed=0
+# python train.py --attack=fgsm --fgsm_alpha=2.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=800 --batch_size=128 --grad_input_sum_coeff=0.2 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
 # FSGM+RS-AT
-# python train.py --attack=fgsm --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=800 --batch_size=128 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=1000 --start_eval_epoch=0 --seed=0
+# python train.py --attack=fgsm --fgsm_alpha=2.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=800 --batch_size=128 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
+# FSGM-AT
+python train.py --attack=fgsm --attack_init=zero --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
 # FGSM+Discrete_eps-AT
-python train.py --attack=fgsm --attack_init=zero --discrete_eps --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
+# python train.py --attack=fgsm --attack_init=zero --discrete_eps --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
+# FGSM+RS+Discrete_eps-AT
+# python train.py --attack=fgsm --attack_init=random --discrete_eps --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
+# FGSM+G_I_S+Discrete_eps-AT
+# python train.py --attack=fgsm --attack_init=zero --discrete_eps --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.2 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
+#FGSM+RS-AT
+# python train.py --attack=fgsm --attack_init=random --fgsm_alpha=2.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=400 --batch_size=256 --lr_max=0.04 --batch_size_eval=512 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
+# FGSM+RS+Discrete_eps-AT
+# python train.py --attack=fgsm --attack_init=random --discrete_eps --fgsm_alpha=2.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0

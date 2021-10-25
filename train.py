@@ -26,7 +26,6 @@ def get_args():
     parser.add_argument('--discrete_eps', action='store_true', help="离散的eps")
     parser.add_argument('--epochs', default=30, type=int, help='15 epochs to reach 45% adv acc, 30 epochs to reach the reported clean/adv accs')
     parser.add_argument('--eps', default=8.0, type=float)
-    
     parser.add_argument('--eval_early_stopped_model', action='store_true', help='whether to evaluate the model obtained via early stopping')
     parser.add_argument('--eval_iter_freq', default=200, type=int, help='how often to evaluate test stats')
     parser.add_argument('--fgsm_alpha', default=1.25, type=float, help="FGSM-AT时的扰动系数")
@@ -122,8 +121,9 @@ def main():
     eps_discrete = 0/255
     ###
     for epoch in range(args.epochs+1):
-        print(eps_discrete * 255)
         print("----------{}----------".format(epoch))
+        if args.discrete_eps:
+            logger.info("eps:{}".format(eps_discrete))
         train_loss, train_reg, train_acc, train_n, grad_norm_x, avg_delta_l2 = 0, 0, 0, 0, 0, 0
         train_gis = 0
         for i, (X, y) in enumerate(train_batches):
@@ -154,7 +154,7 @@ def main():
                     if args.attack_init == "zero":
                         delta = torch.zeros_like(X, requires_grad=True)
                     elif args.attack_init == "random":                         # “random”离散方式需要改变
-                        delta = utils.get_uniform_delta(X.shape, eps, requires_grad=True)
+                        delta = utils.get_uniform_delta(X.shape, eps, requires_grad=True, discrete=args.discrete_eps)
                     else:
                         raise ValueError("Wrong args.attack_init")
                 
@@ -183,7 +183,10 @@ def main():
                 n_alpha_warmup_epochs = 5
                 n_iterations_max_alpha = n_alpha_warmup_epochs * data.shapes_dict[args.dataset][0] // args.batch_size
                 fgsm_alpha = min(iteration / n_iterations_max_alpha * args.fgsm_alpha, args.fgsm_alpha) if args.dataset == "svhn" else args.fgsm_alpha
-                delta.data = utils.clamp(delta.data + fgsm_alpha * argmax_delta, -eps, eps)
+                if args.discrete_eps:
+                    delta.data = utils.clamp(delta.data + fgsm_alpha * argmax_delta, -eps_discrete, eps_discrete)
+                else:
+                    delta.data = utils.clamp(delta.data + fgsm_alpha * argmax_delta, -eps, eps)
                 delta.data = utils.clamp(X + delta.data, 0, 1) - X
 
             elif args.attack == "random_corner":

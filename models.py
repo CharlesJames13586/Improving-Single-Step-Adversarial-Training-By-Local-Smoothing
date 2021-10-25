@@ -59,7 +59,7 @@ class PreActResNet(nn.Module):
         self.learnable_bn = True
         self.in_planes = 64
         self.avg_preact = None
-        self.mu = torch.tensor((0.0, 0.0, 0.,)).view(1, 3, 1, 1)
+        self.mu = torch.tensor((0.0, 0.0, 0.0,)).view(1, 3, 1, 1)
         self.std = torch.tensor((1.0, 1.0, 1.0)).view(1, 3, 1, 1)
         if cuda:
             self.mu = self.mu.cuda()

@@ -7,6 +7,7 @@ import math
 import numpy as np
 from apex import amp
 from contextlib import contextmanager
+import copy
 
 
 logger = logging.getLogger(__name__)
@@ -122,9 +123,11 @@ def attack_pgd_training(model, X, y, eps, alpha, opt, half_prec, attack_iters, r
     return delta.detach()
 
 
-def get_uniform_delta(shape, eps, requires_grad=True):
+def get_uniform_delta(shape, eps, requires_grad=True, discrete=True):
     delta = torch.zeros(shape).cuda()
     delta.uniform_(-eps, eps)
+    if discrete:
+        tensor_discrete(delta)
     delta.requires_grad = requires_grad
     return delta
 
@@ -236,7 +239,9 @@ def attack_pgd(model, X, y, eps, alpha, opt, half_prec, attack_iters, n_restarts
 
     return max_delta
         
-
+# 建议离散的eps为1像素
+# 目前仅支持linf的离散攻击
+# 离散的pgd有终止条件
 def attack_pgd_discrete(model, X, y, eps, alpha, opt, half_prec, attack_iters, n_restarts, rs=True, verbose=False, linf_proj=True, l2_proj=False, l2_grad_update=False, cuda=True):
     if n_restarts > 1 and not rs:
         raise ValueError("no random step and n_restarts > 1!") 
@@ -251,10 +256,13 @@ def attack_pgd_discrete(model, X, y, eps, alpha, opt, half_prec, attack_iters, n
         if attack_iters == 0:
             return delta.detach()
         if rs:
-            delta.uniform_(-eps*255, eps*255).round_().div_(255)               # 随即初始化的离散化
+            # delta.uniform_(-eps, eps).mul_(255).round_().div_(255)             # 随机初始化的离散化
+            delta.uniform_(-eps, eps)
+            tensor_discrete(delta)
         
         delta.requires_grad = True
-        for _ in range(attack_iters):
+        old_grad = torch.zeros_like(delta)
+        for i_iter in range(attack_iters):
             output = model(X + delta)
             loss = F.cross_entropy(output, y)
             if half_prec:
@@ -266,10 +274,15 @@ def attack_pgd_discrete(model, X, y, eps, alpha, opt, half_prec, attack_iters, n
                 loss.backward()
             
             grad = delta.grad.detach()
-
+            if i_iter > 0:
+                # if torch.sum(torch.add(torch.sign(grad), torch.sign(old_grad))) == 0:
+                if torch.sum(torch.add(torch.sign(grad), torch.sign(old_grad))).abs() < 1:
+                    print("提前停止",end='\r')
+                    break
+            old_grad = copy.deepcopy(grad)
             # l2_grad_update 是扰动在 l2 norm 内的更新方式
             if not l2_grad_update:
-                if alpha*255 - round(alpha*255) > 0.000001:
+                if abs(alpha*255 - round(alpha*255)) > 0.000001:
                     print("alpha不是离散值")
                 delta.data = delta + alpha * torch.sign(grad)
 
@@ -298,9 +311,10 @@ def attack_pgd_discrete(model, X, y, eps, alpha, opt, half_prec, attack_iters, n
 
     max_delta = clamp(X+max_delta, 0, 1, cuda) - X
 
-    if torch.sub(max_delta, max_delta.mul(255).round().div(255)).sum() > 0.001:
+    if torch.sub(max_delta, max_delta.mul(255).round().div(255)).abs().sum() > 0.001:
         print("max_delta不是离散值")
-        max_delta.mul_(255).round_().div(255)
+        # max_delta.mul_(255).round_().div_(255)
+        tensor_discrete(max_delta)
 
     return max_delta
 
@@ -320,6 +334,42 @@ def rob_acc(batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_rest
         
         
 
+        if corner:
+            pgd_delta = clamp(X+eps*torch.sign(pgd_delta), 0, 1, cuda) - X
+        
+        pgd_delta_proj = clamp(X + eps*torch.sign(pgd_delta), 0, 1, cuda) - X  # needed just for investigation
+
+        with torch.no_grad():
+            output = model(X + pgd_delta)
+            loss = F.cross_entropy(output, y)
+        
+        n_corr_classified += (output.max(1)[1] == y).sum().item()
+        train_loss_sum += loss.item() * y.size(0)
+        n_ex += y.size(0)
+        pgd_delta_list.append(pgd_delta.cpu().numpy())
+        pgd_delta_proj_list.append(pgd_delta_proj.cpu().numpy())
+
+    robust_acc = n_corr_classified / n_ex
+    avg_loss = train_loss_sum / n_ex
+    pgd_delta_np = np.vstack(pgd_delta_list)
+
+    return robust_acc, avg_loss, pgd_delta_np
+
+
+def rob_acc_discrete(batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=True, linf_proj=True, l2_grad_update=False, corner=False, verbose=False, cuda=True):
+    n_corr_classified, train_loss_sum, n_ex = 0, 0.0, 0
+    pgd_delta_list, pgd_delta_proj_list = [], []
+    progress = True if len(batches) >= 9 else False
+    print()
+    for i, (X, y) in enumerate(batches):
+        if progress:
+            print("{:.2%} [{}/{}]".format(i/len(batches), i, len(batches)), end='\r')
+        if cuda:
+            X, y = X.cuda(), y.cuda()
+
+        # 离散的delta
+        pgd_delta = attack_pgd_discrete(model, X, y, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=rs, verbose=verbose, linf_proj=linf_proj, l2_grad_update=l2_grad_update, cuda=cuda)
+        
         if corner:
             pgd_delta = clamp(X+eps*torch.sign(pgd_delta), 0, 1, cuda) - X
         
@@ -399,3 +449,7 @@ def get_grad_np(model, batches, eps, opt, half_prec, rs=False, cross_entropy=Tru
 @contextmanager
 def nullcontext(enter_result=None):
     yield enter_result
+
+# 将tensor按照图片像素离散化
+def tensor_discrete(tensor):
+    tensor.mul_(255).round_().div_(255)
