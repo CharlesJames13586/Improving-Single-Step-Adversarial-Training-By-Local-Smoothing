@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # 指定gpu_id
-if [$# > 0]
+echo "传递的参数个数为 $#"
+if [$# -gt 0]
 then
     source bashrc
     CUDA_VISIBLE_DEVICES=$1
