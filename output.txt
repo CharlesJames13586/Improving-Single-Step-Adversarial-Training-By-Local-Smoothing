@@ -5,405 +5,571 @@ Files already downloaded and verified
 Files already downloaded and verified
 ----------0----------
 ----------1----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 ----------2----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-2-200: [train] loss 2.454, reg 0.000, g_i_s 0.000 acc 7.97%, acc_pgd-50-10 5.47%  [test] acc_clean 29.30%, acc_fgsm 6.25%, acc_pgd-50-10 4.69%, cos_x_eta 0.935, cos_fgsm_pgd 0.685 (3.57m, 11.68m)
+2-200: [train] loss 2.466, reg 0.000, g_i_s 0.000 acc 7.58%, acc_pgd-50-10 6.64%  [test] acc_clean 34.77%, acc_fgsm 7.81%, acc_pgd-50-10 5.47%, cos_x_eta 0.939, cos_fgsm_pgd 0.674 (0.47m, 2.32m)
 ----------3----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-3-400: [train] loss 2.217, reg 0.000, g_i_s 0.000 acc 17.07%, acc_pgd-50-10 17.19%  [test] acc_clean 38.28%, acc_fgsm 19.14%, acc_pgd-50-10 18.75%, cos_x_eta 0.963, cos_fgsm_pgd 0.72 (6.73m, 23.54m)
+3-400: [train] loss 2.266, reg 0.000, g_i_s 0.000 acc 15.94%, acc_pgd-50-10 14.45%  [test] acc_clean 35.94%, acc_fgsm 18.75%, acc_pgd-50-10 16.02%, cos_x_eta 0.964, cos_fgsm_pgd 0.706 (0.94m, 4.64m)
 ----------4----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-4-600: [train] loss 2.143, reg 0.000, g_i_s 0.000 acc 19.77%, acc_pgd-50-10 21.09%  [test] acc_clean 37.11%, acc_fgsm 21.48%, acc_pgd-50-10 21.48%, cos_x_eta 0.973, cos_fgsm_pgd 0.744 (10.27m, 35.80m)
+4-600: [train] loss 2.152, reg 0.000, g_i_s 0.000 acc 18.78%, acc_pgd-50-10 18.36%  [test] acc_clean 40.23%, acc_fgsm 25.39%, acc_pgd-50-10 23.44%, cos_x_eta 0.973, cos_fgsm_pgd 0.735 (1.41m, 6.95m)
 ----------5----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-5-800: [train] loss 2.065, reg 0.000, g_i_s 0.000 acc 22.29%, acc_pgd-50-10 22.66%  [test] acc_clean 40.23%, acc_fgsm 25.39%, acc_pgd-50-10 24.61%, cos_x_eta 0.976, cos_fgsm_pgd 0.757 (13.58m, 47.03m)
+5-800: [train] loss 2.074, reg 0.000, g_i_s 0.000 acc 21.60%, acc_pgd-50-10 22.66%  [test] acc_clean 38.28%, acc_fgsm 23.44%, acc_pgd-50-10 22.66%, cos_x_eta 0.977, cos_fgsm_pgd 0.749 (1.88m, 9.26m)
 ----------6----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-6-1000: [train] loss 2.033, reg 0.000, g_i_s 0.000 acc 23.38%, acc_pgd-50-10 20.31%  [test] acc_clean 42.58%, acc_fgsm 25.39%, acc_pgd-50-10 24.61%, cos_x_eta 0.98, cos_fgsm_pgd 0.761 (17.14m, 59.29m)
+6-1000: [train] loss 2.040, reg 0.000, g_i_s 0.000 acc 24.03%, acc_pgd-50-10 19.92%  [test] acc_clean 41.80%, acc_fgsm 23.83%, acc_pgd-50-10 23.83%, cos_x_eta 0.98, cos_fgsm_pgd 0.761 (2.35m, 11.57m)
 ----------7----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-7-1200: [train] loss 2.024, reg 0.000, g_i_s 0.000 acc 23.53%, acc_pgd-50-10 23.05%  [test] acc_clean 39.06%, acc_fgsm 24.61%, acc_pgd-50-10 24.61%, cos_x_eta 0.979, cos_fgsm_pgd 0.76 (20.67m, 69.34m)
+7-1200: [train] loss 2.034, reg 0.000, g_i_s 0.000 acc 22.96%, acc_pgd-50-10 22.27%  [test] acc_clean 35.16%, acc_fgsm 26.17%, acc_pgd-50-10 26.17%, cos_x_eta 0.98, cos_fgsm_pgd 0.766 (2.81m, 13.88m)
 ----------8----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-8-1400: [train] loss 2.005, reg 0.000, g_i_s 0.000 acc 23.72%, acc_pgd-50-10 25.39%  [test] acc_clean 40.23%, acc_fgsm 25.00%, acc_pgd-50-10 25.78%, cos_x_eta 0.979, cos_fgsm_pgd 0.76 (22.67m, 76.36m)
+8-1400: [train] loss 2.016, reg 0.000, g_i_s 0.000 acc 22.97%, acc_pgd-50-10 25.00%  [test] acc_clean 37.50%, acc_fgsm 23.44%, acc_pgd-50-10 23.83%, cos_x_eta 0.98, cos_fgsm_pgd 0.758 (3.28m, 16.19m)
 ----------9----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-9-1600: [train] loss 1.958, reg 0.000, g_i_s 0.000 acc 25.76%, acc_pgd-50-10 25.78%  [test] acc_clean 44.92%, acc_fgsm 25.00%, acc_pgd-50-10 25.00%, cos_x_eta 0.981, cos_fgsm_pgd 0.769 (25.38m, 85.36m)
+9-1600: [train] loss 1.965, reg 0.000, g_i_s 0.000 acc 25.90%, acc_pgd-50-10 25.00%  [test] acc_clean 40.23%, acc_fgsm 23.83%, acc_pgd-50-10 23.83%, cos_x_eta 0.981, cos_fgsm_pgd 0.769 (3.74m, 18.51m)
 ----------10----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-10-1800: [train] loss 1.951, reg 0.000, g_i_s 0.000 acc 25.95%, acc_pgd-50-10 25.39%  [test] acc_clean 44.92%, acc_fgsm 28.91%, acc_pgd-50-10 27.73%, cos_x_eta 0.98, cos_fgsm_pgd 0.758 (27.57m, 93.17m)
+10-1800: [train] loss 1.965, reg 0.000, g_i_s 0.000 acc 25.61%, acc_pgd-50-10 25.00%  [test] acc_clean 41.80%, acc_fgsm 26.56%, acc_pgd-50-10 25.00%, cos_x_eta 0.979, cos_fgsm_pgd 0.757 (4.21m, 20.82m)
 ----------11----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-11-2000: [train] loss 1.922, reg 0.000, g_i_s 0.000 acc 27.03%, acc_pgd-50-10 32.03%  [test] acc_clean 41.41%, acc_fgsm 27.34%, acc_pgd-50-10 25.00%, cos_x_eta 0.975, cos_fgsm_pgd 0.755 (29.57m, 100.19m)
+11-2000: [train] loss 1.931, reg 0.000, g_i_s 0.000 acc 26.62%, acc_pgd-50-10 31.25%  [test] acc_clean 41.41%, acc_fgsm 28.52%, acc_pgd-50-10 27.34%, cos_x_eta 0.976, cos_fgsm_pgd 0.751 (4.68m, 23.14m)
 ----------12----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-12-2200: [train] loss 1.907, reg 0.000, g_i_s 0.000 acc 28.01%, acc_pgd-50-10 28.52%  [test] acc_clean 42.97%, acc_fgsm 25.78%, acc_pgd-50-10 25.39%, cos_x_eta 0.977, cos_fgsm_pgd 0.747 (31.56m, 108.17m)
+12-2200: [train] loss 1.915, reg 0.000, g_i_s 0.000 acc 27.74%, acc_pgd-50-10 27.34%  [test] acc_clean 42.97%, acc_fgsm 26.95%, acc_pgd-50-10 26.17%, cos_x_eta 0.979, cos_fgsm_pgd 0.758 (5.14m, 25.46m)
 ----------13----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-13-2400: [train] loss 1.896, reg 0.000, g_i_s 0.000 acc 28.17%, acc_pgd-50-10 30.08%  [test] acc_clean 47.66%, acc_fgsm 31.64%, acc_pgd-50-10 30.47%, cos_x_eta 0.981, cos_fgsm_pgd 0.762 (34.22m, 116.48m)
+13-2400: [train] loss 1.906, reg 0.000, g_i_s 0.000 acc 27.83%, acc_pgd-50-10 29.69%  [test] acc_clean 46.48%, acc_fgsm 29.69%, acc_pgd-50-10 29.30%, cos_x_eta 0.978, cos_fgsm_pgd 0.747 (5.61m, 27.77m)
 ----------14----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-14-2600: [train] loss 1.865, reg 0.000, g_i_s 0.000 acc 28.82%, acc_pgd-50-10 28.12%  [test] acc_clean 45.70%, acc_fgsm 26.95%, acc_pgd-50-10 27.34%, cos_x_eta 0.981, cos_fgsm_pgd 0.759 (36.22m, 124.72m)
+14-2600: [train] loss 1.877, reg 0.000, g_i_s 0.000 acc 28.59%, acc_pgd-50-10 26.17%  [test] acc_clean 44.92%, acc_fgsm 26.95%, acc_pgd-50-10 26.95%, cos_x_eta 0.974, cos_fgsm_pgd 0.751 (6.08m, 30.07m)
 ----------15----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-15-2800: [train] loss 1.858, reg 0.000, g_i_s 0.000 acc 29.30%, acc_pgd-50-10 30.47%  [test] acc_clean 43.75%, acc_fgsm 26.56%, acc_pgd-50-10 26.17%, cos_x_eta 0.973, cos_fgsm_pgd 0.744 (38.22m, 132.33m)
+15-2800: [train] loss 1.868, reg 0.000, g_i_s 0.000 acc 29.03%, acc_pgd-50-10 30.08%  [test] acc_clean 50.00%, acc_fgsm 26.95%, acc_pgd-50-10 26.17%, cos_x_eta 0.975, cos_fgsm_pgd 0.744 (6.54m, 32.39m)
 ----------16----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-16-3000: [train] loss 1.841, reg 0.000, g_i_s 0.000 acc 30.42%, acc_pgd-50-10 26.56%  [test] acc_clean 42.97%, acc_fgsm 23.05%, acc_pgd-50-10 23.05%, cos_x_eta 0.98, cos_fgsm_pgd 0.764 (40.52m, 141.74m)
+16-3000: [train] loss 1.851, reg 0.000, g_i_s 0.000 acc 29.81%, acc_pgd-50-10 25.00%  [test] acc_clean 46.09%, acc_fgsm 25.78%, acc_pgd-50-10 25.00%, cos_x_eta 0.977, cos_fgsm_pgd 0.751 (7.01m, 34.70m)
 ----------17----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-17-3200: [train] loss 1.826, reg 0.000, g_i_s 0.000 acc 30.32%, acc_pgd-50-10 28.91%  [test] acc_clean 48.44%, acc_fgsm 24.61%, acc_pgd-50-10 23.44%, cos_x_eta 0.98, cos_fgsm_pgd 0.758 (42.84m, 149.09m)
+17-3200: [train] loss 1.834, reg 0.000, g_i_s 0.000 acc 29.97%, acc_pgd-50-10 28.91%  [test] acc_clean 49.22%, acc_fgsm 26.95%, acc_pgd-50-10 24.61%, cos_x_eta 0.978, cos_fgsm_pgd 0.751 (7.48m, 37.02m)
 ----------18----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-18-3400: [train] loss 1.810, reg 0.000, g_i_s 0.000 acc 31.62%, acc_pgd-50-10 32.81%  [test] acc_clean 51.56%, acc_fgsm 26.56%, acc_pgd-50-10 26.17%, cos_x_eta 0.972, cos_fgsm_pgd 0.757 (44.84m, 156.12m)
+18-3400: [train] loss 1.819, reg 0.000, g_i_s 0.000 acc 31.26%, acc_pgd-50-10 29.69%  [test] acc_clean 51.17%, acc_fgsm 29.69%, acc_pgd-50-10 28.12%, cos_x_eta 0.969, cos_fgsm_pgd 0.745 (7.94m, 39.32m)
 ----------19----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-19-3600: [train] loss 1.789, reg 0.000, g_i_s 0.000 acc 32.27%, acc_pgd-50-10 32.42%  [test] acc_clean 56.25%, acc_fgsm 32.03%, acc_pgd-50-10 29.69%, cos_x_eta 0.976, cos_fgsm_pgd 0.744 (46.84m, 165.38m)
+19-3600: [train] loss 1.799, reg 0.000, g_i_s 0.000 acc 32.21%, acc_pgd-50-10 33.59%  [test] acc_clean 51.95%, acc_fgsm 30.47%, acc_pgd-50-10 30.08%, cos_x_eta 0.973, cos_fgsm_pgd 0.747 (8.41m, 41.63m)
 ----------20----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-20-3800: [train] loss 1.772, reg 0.000, g_i_s 0.000 acc 32.39%, acc_pgd-50-10 31.25%  [test] acc_clean 48.44%, acc_fgsm 28.91%, acc_pgd-50-10 27.34%, cos_x_eta 0.965, cos_fgsm_pgd 0.751 (50.38m, 177.66m)
+20-3800: [train] loss 1.781, reg 0.000, g_i_s 0.000 acc 32.03%, acc_pgd-50-10 28.91%  [test] acc_clean 49.22%, acc_fgsm 28.12%, acc_pgd-50-10 28.52%, cos_x_eta 0.97, cos_fgsm_pgd 0.74 (8.87m, 43.95m)
 ----------21----------
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
 
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-[W pthreadpool-cpp.cc:90] Warning: Leaking Caffe2 thread-pool after fork. (function pthreadpool)
-21-4000: [train] loss 1.762, reg 0.000, g_i_s 0.000 acc 32.86%, acc_pgd-50-10 30.47%  [test] acc_clean 48.44%, acc_fgsm 29.69%, acc_pgd-50-10 28.52%, cos_x_eta 0.978, cos_fgsm_pgd 0.743 (53.92m, 189.20m)
+21-4000: [train] loss 1.768, reg 0.000, g_i_s 0.000 acc 32.57%, acc_pgd-50-10 32.81%  [test] acc_clean 51.17%, acc_fgsm 29.69%, acc_pgd-50-10 28.52%, cos_x_eta 0.975, cos_fgsm_pgd 0.741 (9.34m, 46.27m)
+----------22----------
+
+
+
+
+22-4200: [train] loss 1.745, reg 0.000, g_i_s 0.000 acc 33.47%, acc_pgd-50-10 33.59%  [test] acc_clean 55.47%, acc_fgsm 35.55%, acc_pgd-50-10 33.20%, cos_x_eta 0.98, cos_fgsm_pgd 0.746 (9.81m, 48.58m)
+----------23----------
+
+
+
+
+23-4400: [train] loss 1.725, reg 0.000, g_i_s 0.000 acc 34.26%, acc_pgd-50-10 30.08%  [test] acc_clean 58.20%, acc_fgsm 32.03%, acc_pgd-50-10 29.69%, cos_x_eta 0.971, cos_fgsm_pgd 0.733 (10.27m, 50.89m)
+----------24----------
+
+
+
+
+24-4600: [train] loss 1.711, reg 0.000, g_i_s 0.000 acc 34.86%, acc_pgd-50-10 36.33%  [test] acc_clean 51.56%, acc_fgsm 32.03%, acc_pgd-50-10 31.25%, cos_x_eta 0.975, cos_fgsm_pgd 0.738 (10.74m, 53.20m)
+----------25----------
+
+
+
+
+25-4800: [train] loss 1.683, reg 0.000, g_i_s 0.000 acc 35.95%, acc_pgd-50-10 29.69%  [test] acc_clean 55.08%, acc_fgsm 30.86%, acc_pgd-50-10 27.34%, cos_x_eta 0.973, cos_fgsm_pgd 0.722 (11.20m, 55.51m)
+----------26----------
+
+
+
+
+26-5000: [train] loss 1.670, reg 0.000, g_i_s 0.000 acc 36.23%, acc_pgd-50-10 32.81%  [test] acc_clean 61.72%, acc_fgsm 37.11%, acc_pgd-50-10 34.38%, cos_x_eta 0.976, cos_fgsm_pgd 0.738 (11.67m, 57.83m)
+----------27----------
+
+
+
+
+27-5200: [train] loss 1.647, reg 0.000, g_i_s 0.000 acc 37.04%, acc_pgd-50-10 37.50%  [test] acc_clean 51.56%, acc_fgsm 33.20%, acc_pgd-50-10 30.47%, cos_x_eta 0.971, cos_fgsm_pgd 0.718 (12.14m, 60.14m)
+----------28----------
+
+
+
+
+28-5400: [train] loss 1.634, reg 0.000, g_i_s 0.000 acc 37.43%, acc_pgd-50-10 34.38%  [test] acc_clean 62.11%, acc_fgsm 29.69%, acc_pgd-50-10 27.34%, cos_x_eta 0.968, cos_fgsm_pgd 0.71 (12.60m, 62.46m)
+----------29----------
+
+
+
+
+29-5600: [train] loss 1.615, reg 0.000, g_i_s 0.000 acc 38.23%, acc_pgd-50-10 30.08%  [test] acc_clean 56.64%, acc_fgsm 31.64%, acc_pgd-50-10 28.12%, cos_x_eta 0.972, cos_fgsm_pgd 0.707 (13.07m, 64.78m)
+----------30----------
+
+
+
+
+30-5800: [train] loss 1.595, reg 0.000, g_i_s 0.000 acc 38.74%, acc_pgd-50-10 41.02%  [test] acc_clean 67.58%, acc_fgsm 36.72%, acc_pgd-50-10 32.42%, cos_x_eta 0.973, cos_fgsm_pgd 0.722 (13.54m, 67.09m)
+----------31----------
+
+
+
+
+31-6000: [train] loss 1.582, reg 0.000, g_i_s 0.000 acc 39.69%, acc_pgd-50-10 33.59%  [test] acc_clean 58.59%, acc_fgsm 30.08%, acc_pgd-50-10 28.12%, cos_x_eta 0.973, cos_fgsm_pgd 0.725 (14.00m, 69.40m)
+----------32----------
+
+
+
+
+32-6200: [train] loss 1.559, reg 0.000, g_i_s 0.000 acc 40.37%, acc_pgd-50-10 40.23%  [test] acc_clean 67.19%, acc_fgsm 38.28%, acc_pgd-50-10 35.55%, cos_x_eta 0.967, cos_fgsm_pgd 0.714 (14.47m, 71.72m)
+----------33----------
+
+
+
+
+33-6400: [train] loss 1.535, reg 0.000, g_i_s 0.000 acc 41.04%, acc_pgd-50-10 41.41%  [test] acc_clean 62.50%, acc_fgsm 35.55%, acc_pgd-50-10 34.38%, cos_x_eta 0.968, cos_fgsm_pgd 0.69 (14.93m, 74.03m)
+----------34----------
+
+
+
+
+34-6600: [train] loss 1.520, reg 0.000, g_i_s 0.000 acc 41.73%, acc_pgd-50-10 44.14%  [test] acc_clean 66.41%, acc_fgsm 37.11%, acc_pgd-50-10 34.77%, cos_x_eta 0.965, cos_fgsm_pgd 0.707 (15.40m, 76.35m)
+----------35----------
+
+
+
+
+35-6800: [train] loss 1.492, reg 0.000, g_i_s 0.000 acc 42.50%, acc_pgd-50-10 44.53%  [test] acc_clean 69.53%, acc_fgsm 38.28%, acc_pgd-50-10 36.33%, cos_x_eta 0.969, cos_fgsm_pgd 0.71 (15.87m, 78.67m)
+----------36----------
+
+
+
+
+36-7000: [train] loss 1.488, reg 0.000, g_i_s 0.000 acc 42.72%, acc_pgd-50-10 41.02%  [test] acc_clean 67.19%, acc_fgsm 42.19%, acc_pgd-50-10 39.06%, cos_x_eta 0.964, cos_fgsm_pgd 0.698 (16.33m, 80.98m)
+----------37----------
+
+
+
+
+37-7200: [train] loss 1.472, reg 0.000, g_i_s 0.000 acc 43.32%, acc_pgd-50-10 40.62%  [test] acc_clean 67.97%, acc_fgsm 41.41%, acc_pgd-50-10 36.33%, cos_x_eta 0.963, cos_fgsm_pgd 0.677 (16.80m, 83.30m)
+----------38----------
+
+
+
+
+38-7400: [train] loss 1.457, reg 0.000, g_i_s 0.000 acc 44.19%, acc_pgd-50-10 44.92%  [test] acc_clean 68.36%, acc_fgsm 42.19%, acc_pgd-50-10 38.28%, cos_x_eta 0.979, cos_fgsm_pgd 0.712 (17.27m, 85.61m)
+----------39----------
+
+
+
+
+39-7600: [train] loss 1.434, reg 0.000, g_i_s 0.000 acc 45.16%, acc_pgd-50-10 44.14%  [test] acc_clean 69.53%, acc_fgsm 40.23%, acc_pgd-50-10 37.11%, cos_x_eta 0.973, cos_fgsm_pgd 0.696 (17.73m, 87.93m)
+----------40----------
+
+
+
+
+40-7800: [train] loss 1.409, reg 0.000, g_i_s 0.000 acc 45.85%, acc_pgd-50-10 45.70%  [test] acc_clean 70.31%, acc_fgsm 43.75%, acc_pgd-50-10 40.62%, cos_x_eta 0.969, cos_fgsm_pgd 0.693 (18.20m, 90.24m)
+----------41----------
+----------42----------
+
+
+
+
+42-8000: [train] loss 1.383, reg 0.000, g_i_s 0.000 acc 47.50%, acc_pgd-50-10 40.62%  [test] acc_clean 72.27%, acc_fgsm 39.06%, acc_pgd-50-10 35.16%, cos_x_eta 0.964, cos_fgsm_pgd 0.66 (18.67m, 92.57m)
+----------43----------
+
+
+
+
+43-8200: [train] loss 1.301, reg 0.000, g_i_s 0.000 acc 50.39%, acc_pgd-50-10 45.70%  [test] acc_clean 76.17%, acc_fgsm 42.97%, acc_pgd-50-10 39.45%, cos_x_eta 0.972, cos_fgsm_pgd 0.677 (19.13m, 94.88m)
+----------44----------
+
+
+
+
+44-8400: [train] loss 1.330, reg 0.000, g_i_s 0.000 acc 48.75%, acc_pgd-50-10 44.92%  [test] acc_clean 72.66%, acc_fgsm 44.92%, acc_pgd-50-10 39.06%, cos_x_eta 0.951, cos_fgsm_pgd 0.654 (19.60m, 97.19m)
+----------45----------
+
+
+
+
+45-8600: [train] loss 1.285, reg 0.000, g_i_s 0.000 acc 49.82%, acc_pgd-50-10 46.48%  [test] acc_clean 74.61%, acc_fgsm 47.27%, acc_pgd-50-10 41.80%, cos_x_eta 0.953, cos_fgsm_pgd 0.672 (20.06m, 99.50m)
+----------46----------
+
+
+
+
+46-8800: [train] loss 1.291, reg 0.000, g_i_s 0.000 acc 49.59%, acc_pgd-50-10 47.66%  [test] acc_clean 77.34%, acc_fgsm 44.53%, acc_pgd-50-10 39.84%, cos_x_eta 0.952, cos_fgsm_pgd 0.661 (20.53m, 101.82m)
+----------47----------
+
+
+
+
+47-9000: [train] loss 1.267, reg 0.000, g_i_s 0.000 acc 50.17%, acc_pgd-50-10 48.05%  [test] acc_clean 73.05%, acc_fgsm 43.36%, acc_pgd-50-10 38.67%, cos_x_eta 0.966, cos_fgsm_pgd 0.674 (21.00m, 104.13m)
+----------48----------
+
+
+
+
+48-9200: [train] loss 1.239, reg 0.000, g_i_s 0.000 acc 52.35%, acc_pgd-50-10 44.14%  [test] acc_clean 71.48%, acc_fgsm 40.23%, acc_pgd-50-10 35.55%, cos_x_eta 0.958, cos_fgsm_pgd 0.64 (21.46m, 106.44m)
+----------49----------
+
+
+
+
+49-9400: [train] loss 1.212, reg 0.000, g_i_s 0.000 acc 52.48%, acc_pgd-50-10 50.39%  [test] acc_clean 78.91%, acc_fgsm 49.22%, acc_pgd-50-10 41.41%, cos_x_eta 0.964, cos_fgsm_pgd 0.659 (21.93m, 108.75m)
+----------50----------
+
+
+
+
+50-9600: [train] loss 1.224, reg 0.000, g_i_s 0.000 acc 51.74%, acc_pgd-50-10 49.61%  [test] acc_clean 76.95%, acc_fgsm 48.83%, acc_pgd-50-10 42.58%, cos_x_eta 0.965, cos_fgsm_pgd 0.671 (22.39m, 111.06m)
+----------51----------
+
+
+
+
+51-9800: [train] loss 1.200, reg 0.000, g_i_s 0.000 acc 52.75%, acc_pgd-50-10 51.95%  [test] acc_clean 78.12%, acc_fgsm 48.83%, acc_pgd-50-10 41.80%, cos_x_eta 0.911, cos_fgsm_pgd 0.628 (22.86m, 113.38m)
+----------52----------
+
+
+
+
+52-10000: [train] loss 0.869, reg 0.000, g_i_s 0.000 acc 68.42%, acc_pgd-50-10 21.48%  [test] acc_clean 67.58%, acc_fgsm 21.88%, acc_pgd-50-10 17.19%, cos_x_eta 0.97, cos_fgsm_pgd 0.624 (23.33m, 115.69m)
+----------53----------
+
+
+
+
+53-10200: [train] loss 1.194, reg 0.000, g_i_s 0.000 acc 52.92%, acc_pgd-50-10 42.97%  [test] acc_clean 75.39%, acc_fgsm 44.53%, acc_pgd-50-10 39.45%, cos_x_eta 0.964, cos_fgsm_pgd 0.659 (23.79m, 118.01m)
+----------54----------
+
+
+
+
+54-10400: [train] loss 1.165, reg 0.000, g_i_s 0.000 acc 54.25%, acc_pgd-50-10 46.48%  [test] acc_clean 80.08%, acc_fgsm 48.05%, acc_pgd-50-10 40.62%, cos_x_eta 0.962, cos_fgsm_pgd 0.631 (24.26m, 120.32m)
+----------55----------
+
+
+
+
+55-10600: [train] loss 1.140, reg 0.000, g_i_s 0.000 acc 55.11%, acc_pgd-50-10 47.27%  [test] acc_clean 81.64%, acc_fgsm 48.05%, acc_pgd-50-10 38.28%, cos_x_eta 0.962, cos_fgsm_pgd 0.643 (24.73m, 122.64m)
+----------56----------
+
+
+
+
+56-10800: [train] loss 1.135, reg 0.000, g_i_s 0.000 acc 55.09%, acc_pgd-50-10 50.39%  [test] acc_clean 80.08%, acc_fgsm 46.48%, acc_pgd-50-10 39.84%, cos_x_eta 0.961, cos_fgsm_pgd 0.636 (25.19m, 124.95m)
+----------57----------
+
+
+
+
+57-11000: [train] loss 1.114, reg 0.000, g_i_s 0.000 acc 55.85%, acc_pgd-50-10 51.95%  [test] acc_clean 78.52%, acc_fgsm 46.88%, acc_pgd-50-10 39.45%, cos_x_eta 0.952, cos_fgsm_pgd 0.632 (25.66m, 127.26m)
+----------58----------
+
+
+
+
+58-11200: [train] loss 1.101, reg 0.000, g_i_s 0.000 acc 56.69%, acc_pgd-50-10 50.78%  [test] acc_clean 79.30%, acc_fgsm 44.53%, acc_pgd-50-10 35.55%, cos_x_eta 0.95, cos_fgsm_pgd 0.608 (26.12m, 129.57m)
+----------59----------
+
+
+
+
+59-11400: [train] loss 1.074, reg 0.000, g_i_s 0.000 acc 57.15%, acc_pgd-50-10 52.73%  [test] acc_clean 77.34%, acc_fgsm 48.05%, acc_pgd-50-10 41.80%, cos_x_eta 0.958, cos_fgsm_pgd 0.645 (26.59m, 131.88m)
+----------60----------
+
+
+
+
+60-11600: [train] loss 1.070, reg 0.000, g_i_s 0.000 acc 57.01%, acc_pgd-50-10 46.88%  [test] acc_clean 76.95%, acc_fgsm 45.70%, acc_pgd-50-10 35.16%, cos_x_eta 0.946, cos_fgsm_pgd 0.605 (27.05m, 134.20m)
+----------61----------
+
+
+
+
+61-11800: [train] loss 1.042, reg 0.000, g_i_s 0.000 acc 58.20%, acc_pgd-50-10 48.44%  [test] acc_clean 81.64%, acc_fgsm 49.22%, acc_pgd-50-10 38.67%, cos_x_eta 0.951, cos_fgsm_pgd 0.626 (27.52m, 136.52m)
+----------62----------
+
+
+
+
+62-12000: [train] loss 1.034, reg 0.000, g_i_s 0.000 acc 58.57%, acc_pgd-50-10 51.17%  [test] acc_clean 80.86%, acc_fgsm 48.05%, acc_pgd-50-10 40.23%, cos_x_eta 0.948, cos_fgsm_pgd 0.606 (27.99m, 138.83m)
+----------63----------
+
+
+
+
+63-12200: [train] loss 1.016, reg 0.000, g_i_s 0.000 acc 59.32%, acc_pgd-50-10 53.52%  [test] acc_clean 81.64%, acc_fgsm 50.39%, acc_pgd-50-10 42.97%, cos_x_eta 0.94, cos_fgsm_pgd 0.603 (28.45m, 141.14m)
+----------64----------
+
+
+
+
+64-12400: [train] loss 1.001, reg 0.000, g_i_s 0.000 acc 59.34%, acc_pgd-50-10 51.95%  [test] acc_clean 78.91%, acc_fgsm 49.61%, acc_pgd-50-10 41.41%, cos_x_eta 0.943, cos_fgsm_pgd 0.602 (28.92m, 143.45m)
+----------65----------
+
+
+
+
+65-12600: [train] loss 0.995, reg 0.000, g_i_s 0.000 acc 59.50%, acc_pgd-50-10 51.95%  [test] acc_clean 81.25%, acc_fgsm 47.66%, acc_pgd-50-10 37.11%, cos_x_eta 0.937, cos_fgsm_pgd 0.589 (29.38m, 145.76m)
+----------66----------
+
+
+
+
+66-12800: [train] loss 0.971, reg 0.000, g_i_s 0.000 acc 60.41%, acc_pgd-50-10 47.27%  [test] acc_clean 80.86%, acc_fgsm 49.61%, acc_pgd-50-10 40.62%, cos_x_eta 0.943, cos_fgsm_pgd 0.601 (29.85m, 148.08m)
+----------67----------
+
+
+
+
+67-13000: [train] loss 0.960, reg 0.000, g_i_s 0.000 acc 60.86%, acc_pgd-50-10 50.39%  [test] acc_clean 80.86%, acc_fgsm 46.88%, acc_pgd-50-10 38.67%, cos_x_eta 0.931, cos_fgsm_pgd 0.579 (30.32m, 150.39m)
+----------68----------
+
+
+
+
+68-13200: [train] loss 0.941, reg 0.000, g_i_s 0.000 acc 61.44%, acc_pgd-50-10 49.22%  [test] acc_clean 81.25%, acc_fgsm 51.17%, acc_pgd-50-10 42.19%, cos_x_eta 0.94, cos_fgsm_pgd 0.59 (30.78m, 152.70m)
+----------69----------
+
+
+
+
+69-13400: [train] loss 0.922, reg 0.000, g_i_s 0.000 acc 62.25%, acc_pgd-50-10 54.30%  [test] acc_clean 78.52%, acc_fgsm 51.56%, acc_pgd-50-10 40.62%, cos_x_eta 0.921, cos_fgsm_pgd 0.571 (31.25m, 155.01m)
+----------70----------
+
+
+
+
+70-13600: [train] loss 0.902, reg 0.000, g_i_s 0.000 acc 62.54%, acc_pgd-50-10 52.73%  [test] acc_clean 82.03%, acc_fgsm 46.09%, acc_pgd-50-10 37.50%, cos_x_eta 0.925, cos_fgsm_pgd 0.573 (31.71m, 157.32m)
+----------71----------
+
+
+
+
+71-13800: [train] loss 0.879, reg 0.000, g_i_s 0.000 acc 63.96%, acc_pgd-50-10 46.09%  [test] acc_clean 80.47%, acc_fgsm 51.56%, acc_pgd-50-10 35.94%, cos_x_eta 0.814, cos_fgsm_pgd 0.489 (32.18m, 159.63m)
+----------72----------
+
+
+
+
+72-14000: [train] loss 0.500, reg 0.000, g_i_s 0.000 acc 80.90%, acc_pgd-50-10 5.08%  [test] acc_clean 84.77%, acc_fgsm 65.62%, acc_pgd-50-10 3.91%, cos_x_eta 0.249, cos_fgsm_pgd 0.125 (32.65m, 161.95m)
+----------73----------
+
+
+
+
+73-14200: [train] loss 0.243, reg 0.000, g_i_s 0.000 acc 91.49%, acc_pgd-50-10 0.39%  [test] acc_clean 85.16%, acc_fgsm 82.42%, acc_pgd-50-10 0.39%, cos_x_eta 0.103, cos_fgsm_pgd 0.0573 (33.11m, 164.26m)
+----------74----------
+
+
+
+
+74-14400: [train] loss 0.164, reg 0.000, g_i_s 0.000 acc 94.45%, acc_pgd-50-10 0.00%  [test] acc_clean 82.42%, acc_fgsm 83.20%, acc_pgd-50-10 0.00%, cos_x_eta 0.059, cos_fgsm_pgd 0.0354 (33.58m, 166.58m)
+----------75----------
+
+
+
+
+75-14600: [train] loss 0.142, reg 0.000, g_i_s 0.000 acc 95.20%, acc_pgd-50-10 0.00%  [test] acc_clean 81.25%, acc_fgsm 89.84%, acc_pgd-50-10 0.00%, cos_x_eta 0.0454, cos_fgsm_pgd 0.0364 (34.05m, 168.90m)
+----------76----------
+
+
+
+
+76-14800: [train] loss 0.141, reg 0.000, g_i_s 0.000 acc 95.17%, acc_pgd-50-10 0.00%  [test] acc_clean 83.98%, acc_fgsm 85.94%, acc_pgd-50-10 0.00%, cos_x_eta 0.0795, cos_fgsm_pgd 0.0337 (34.51m, 171.21m)
+----------77----------
+
+
+
+
+77-15000: [train] loss 0.121, reg 0.000, g_i_s 0.000 acc 95.79%, acc_pgd-50-10 0.00%  [test] acc_clean 83.98%, acc_fgsm 76.17%, acc_pgd-50-10 0.00%, cos_x_eta 0.0549, cos_fgsm_pgd 0.0315 (34.97m, 173.52m)
+----------78----------
+
+
+
+
+78-15200: [train] loss 0.105, reg 0.000, g_i_s 0.000 acc 96.48%, acc_pgd-50-10 0.00%  [test] acc_clean 80.47%, acc_fgsm 76.56%, acc_pgd-50-10 0.00%, cos_x_eta 0.072, cos_fgsm_pgd 0.0365 (35.43m, 175.83m)
+----------79----------
+
+
+
+
+79-15400: [train] loss 0.082, reg 0.000, g_i_s 0.000 acc 97.35%, acc_pgd-50-10 0.00%  [test] acc_clean 86.33%, acc_fgsm 75.39%, acc_pgd-50-10 0.00%, cos_x_eta 0.0582, cos_fgsm_pgd 0.0328 (35.90m, 178.15m)
+----------80----------
+
+
+
+
+80-15600: [train] loss 0.077, reg 0.000, g_i_s 0.000 acc 97.46%, acc_pgd-50-10 0.00%  [test] acc_clean 86.33%, acc_fgsm 91.80%, acc_pgd-50-10 0.00%, cos_x_eta 0.048, cos_fgsm_pgd 0.0278 (36.37m, 180.47m)
+----------81----------
+----------82----------
+
+
+
+
+82-15800: [train] loss 0.051, reg 0.000, g_i_s 0.000 acc 98.20%, acc_pgd-50-10 0.00%  [test] acc_clean 85.94%, acc_fgsm 79.30%, acc_pgd-50-10 0.00%, cos_x_eta 0.0551, cos_fgsm_pgd 0.037 (36.84m, 182.79m)
+----------83----------
+
+
+
+
+83-16000: [train] loss 0.051, reg 0.000, g_i_s 0.000 acc 98.36%, acc_pgd-50-10 0.00%  [test] acc_clean 85.94%, acc_fgsm 82.03%, acc_pgd-50-10 0.00%, cos_x_eta 0.0457, cos_fgsm_pgd 0.0272 (37.30m, 185.10m)
+----------84----------
+
+
+
+
+84-16200: [train] loss 0.062, reg 0.000, g_i_s 0.000 acc 97.99%, acc_pgd-50-10 0.00%  [test] acc_clean 86.72%, acc_fgsm 85.16%, acc_pgd-50-10 0.00%, cos_x_eta 0.0761, cos_fgsm_pgd 0.0367 (37.77m, 187.41m)
+----------85----------
+
+
+
+
+85-16400: [train] loss 0.035, reg 0.000, g_i_s 0.000 acc 98.93%, acc_pgd-50-10 0.00%  [test] acc_clean 83.98%, acc_fgsm 88.67%, acc_pgd-50-10 0.00%, cos_x_eta 0.0503, cos_fgsm_pgd 0.0322 (38.24m, 189.72m)
+----------86----------
+
+
+
+
+86-16600: [train] loss 0.030, reg 0.000, g_i_s 0.000 acc 99.14%, acc_pgd-50-10 0.00%  [test] acc_clean 87.50%, acc_fgsm 82.81%, acc_pgd-50-10 0.00%, cos_x_eta 0.0589, cos_fgsm_pgd 0.0326 (38.70m, 192.04m)
+----------87----------
+
+
+
+
+87-16800: [train] loss 0.026, reg 0.000, g_i_s 0.000 acc 99.24%, acc_pgd-50-10 0.00%  [test] acc_clean 84.38%, acc_fgsm 81.25%, acc_pgd-50-10 0.00%, cos_x_eta 0.0497, cos_fgsm_pgd 0.0298 (39.17m, 194.36m)
+----------88----------
+
+
+
+
+88-17000: [train] loss 0.018, reg 0.000, g_i_s 0.000 acc 99.53%, acc_pgd-50-10 0.00%  [test] acc_clean 83.98%, acc_fgsm 84.77%, acc_pgd-50-10 0.00%, cos_x_eta 0.049, cos_fgsm_pgd 0.029 (39.64m, 196.68m)
+----------89----------
+
+
+
+
+89-17200: [train] loss 0.013, reg 0.000, g_i_s 0.000 acc 99.71%, acc_pgd-50-10 0.00%  [test] acc_clean 84.77%, acc_fgsm 86.33%, acc_pgd-50-10 0.00%, cos_x_eta 0.0498, cos_fgsm_pgd 0.0282 (40.10m, 198.99m)
+----------90----------
+
+
+
+
+90-17400: [train] loss 0.012, reg 0.000, g_i_s 0.000 acc 99.72%, acc_pgd-50-10 0.00%  [test] acc_clean 85.16%, acc_fgsm 84.38%, acc_pgd-50-10 0.00%, cos_x_eta 0.0458, cos_fgsm_pgd 0.0304 (40.57m, 201.29m)
+----------91----------
+
+
+
+
+91-17600: [train] loss 0.011, reg 0.000, g_i_s 0.000 acc 99.77%, acc_pgd-50-10 0.00%  [test] acc_clean 84.38%, acc_fgsm 89.45%, acc_pgd-50-10 0.00%, cos_x_eta 0.0374, cos_fgsm_pgd 0.0275 (41.03m, 203.60m)
+----------92----------
+
+
+
+
+92-17800: [train] loss 0.009, reg 0.000, g_i_s 0.000 acc 99.78%, acc_pgd-50-10 0.00%  [test] acc_clean 85.16%, acc_fgsm 86.33%, acc_pgd-50-10 0.00%, cos_x_eta 0.0425, cos_fgsm_pgd 0.0293 (41.50m, 205.91m)
+----------93----------
+
+
+
+
+93-18000: [train] loss 0.007, reg 0.000, g_i_s 0.000 acc 99.86%, acc_pgd-50-10 0.00%  [test] acc_clean 86.72%, acc_fgsm 85.55%, acc_pgd-50-10 0.00%, cos_x_eta 0.0484, cos_fgsm_pgd 0.0273 (41.97m, 208.23m)
+----------94----------
+
+
+
+
+94-18200: [train] loss 0.006, reg 0.000, g_i_s 0.000 acc 99.94%, acc_pgd-50-10 0.00%  [test] acc_clean 86.72%, acc_fgsm 85.94%, acc_pgd-50-10 0.00%, cos_x_eta 0.047, cos_fgsm_pgd 0.0299 (42.43m, 210.55m)
+----------95----------
+
+
+
+
+95-18400: [train] loss 0.005, reg 0.000, g_i_s 0.000 acc 99.90%, acc_pgd-50-10 0.00%  [test] acc_clean 87.50%, acc_fgsm 85.94%, acc_pgd-50-10 0.00%, cos_x_eta 0.045, cos_fgsm_pgd 0.0292 (42.90m, 212.87m)
+----------96----------
+
+
+
+
+96-18600: [train] loss 0.005, reg 0.000, g_i_s 0.000 acc 99.94%, acc_pgd-50-10 0.00%  [test] acc_clean 87.89%, acc_fgsm 85.94%, acc_pgd-50-10 0.00%, cos_x_eta 0.0467, cos_fgsm_pgd 0.0284 (43.37m, 215.17m)
+
+
+[last: test on 10k points] acc_clean 88.89%, pgd_rr 0.01%
+
+
+[best: test on 10k points][iter=13400] acc_clean 78.89%, pgd_rr 40.14%
+
+
