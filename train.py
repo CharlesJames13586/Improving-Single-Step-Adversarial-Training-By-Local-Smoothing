@@ -34,6 +34,7 @@ def get_args():
     parser.add_argument('--half_prec', action='store_true', help='if enabled, runs everything as half precision')
     parser.add_argument('--lr_max', default=0.2, type=float, help='0.05 in Table 1, 0.2 in Figure 2')
     parser.add_argument('--lr_schedule', default='cyclic', choices=['cyclic', 'piecewise'])
+    parser.add_argument('--mast', action='store_true', help="如果为true，则使用MAST")
     parser.add_argument('--minibatch_replay', default=1, type=int, help='minibatch replay as in AT for Free (default=1 is usual training)')
     parser.add_argument('--model', default='resnet18', choices=['resnet18', 'lenet', 'cnn'], type=str)
     parser.add_argument('--n_eval_every_k_iter', default=256, type=int, help='on how many examples to eval every k iters')
@@ -179,6 +180,10 @@ def main():
                 else:
                     argmax_delta = eps * torch.sign(grad)
                 ###
+                ### 修改eps为MAST形式
+                if args.mast:
+                    mix_eps = utils.get_uniform_delta(X.shape, eps, requires_grad=False, discrete=True)
+                    argmax_delta = mix_eps * torch.sign(grad)
 
                 n_alpha_warmup_epochs = 5
                 n_iterations_max_alpha = n_alpha_warmup_epochs * data.shapes_dict[args.dataset][0] // args.batch_size
