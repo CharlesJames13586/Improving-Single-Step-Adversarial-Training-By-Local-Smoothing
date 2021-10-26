@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
+# 指定gpu_id
+if [$# > 0]
+then
+    source bashrc
+    CUDA_VISIBLE_DEVICES=$1
+    echo "指定在gpu $1 上运行代码"
+else
+    echo "在默认gpu上运行代码"
+fi
 ### To reproduce the curves, one has to run all the models for seed in {0, 1, 2, 3, 4}, and then average the results
 
 # FGSM
