@@ -5,3 +5,5 @@ models/
 logs/
 venv-torch/
 sh/
+output.txt
+nohup.out
