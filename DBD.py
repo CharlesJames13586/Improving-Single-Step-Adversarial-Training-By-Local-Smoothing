@@ -66,7 +66,7 @@ def main():
     # print(grad_dir.sum())
     # print(rand_dir.sum())
     cos_x_eta = utils.avg_cos_np(grad_dir.numpy()[np.newaxis,:], rand_dir.numpy()[np.newaxis,:])
-    cos_x_eta = utils.avg_cos_np(grad_dir.numpy()[np.newaxis,:], grad_dir.numpy()[np.newaxis,:])
+    # cos_x_eta = utils.avg_cos_np(grad_dir.numpy()[np.newaxis,:], grad_dir.numpy()[np.newaxis,:])
     print(cos_x_eta)
     rx, ry, zs, colors = cal_perturb(model=model, image=images[j], label=labels[j], vec_x=grad_dir, vec_y=rand_dir, range_x=(0,1), range_y=(0,1), grid_size=50)
 
