@@ -1,7 +1,7 @@
 # Decision Boundary Disortion
 # todo:
 # 1. 画出loss的曲面图         ✅
-# 2. 曲面图上的标注预测值的信息 🤔
+# 2. 曲面图上的标注预测值的信息  ✅
 
 import numpy as np
 from numpy.core.function_base import linspace
@@ -22,13 +22,13 @@ import seaborn as sns
 def get_args():
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('--batch_size_eval', default=256, type=int, help='batch size for the final eval with pgd rr; 6 GB memory is consumed for 1024 examples with fp32 network')
+    parser.add_argument('--batch_size_eval', default=1, type=int, help='batch size for the final eval with pgd rr; 6 GB memory is consumed for 1024 examples with fp32 network')
     parser.add_argument('--dataset', default='cifar10', choices=['mnist', 'svhn', 'cifar10', 'cifar10_binary', 'cifar10_binary_gs', 'uniform_noise', 'imagenet'], type=str)
     parser.add_argument('--eps', default=8.0, type=float)
     parser.add_argument("--timestamp", default="2021-10-12", help="模型训练的时间戳，用来选择被测试的模型")
     parser.add_argument('--model', default='resnet18', choices=['resnet18', 'lenet', 'cnn'], type=str)
     parser.add_argument('--model_label', default='last', choices=['last', 'best', 'best_test'], type=str)
-    parser.add_argument('--n_final_eval', default=1, type=int, help='on how many examples to do the final evaluation; -1 means on all test examples.')
+    parser.add_argument('--n_final_eval', default=-1, type=int, help='on how many examples to do the final evaluation; -1 means on all test examples.')
 
     return parser.parse_args()
 
@@ -46,7 +46,7 @@ def main():
     model_saved = torch.load(model_name)
 
     n_cls = 2 if 'binary' in args.dataset else 10
-    test_batches = data.get_loaders(args.dataset, args.n_final_eval, args.batch_size_eval, train_set=False, shuffle=False, data_augm=False)
+    test_batches = data.get_loaders(args.dataset, args.n_final_eval, 100, train_set=False, shuffle=False, data_augm=False)
 
     model = models.get_model(args.model, n_cls, False, data.shapes_dict[args.dataset], 16).cuda()
     model.load_state_dict(model_saved[args.model_label])
@@ -55,22 +55,20 @@ def main():
     images, labels = images.cuda(), labels.cuda()
 
     # 2. 生成对抗样本
-    j = 0
     eps = args.eps / 255                                                       # 参数指定的单位是像素值
     opt = torch.optim.SGD(model.parameters(), lr=0)
+    j = 68
+    # 88 81
+    
+    
     grad_x = utils.get_grad_np(model, test_batches, eps, opt, False, rs=False)
     grad_dir = torch.Tensor(grad_x[j]).sign().mul(8/255)
     rand_dir = torch.rand_like(grad_dir).sub(0.5).sign().mul(8/255)
-    # print(grad_dir)
-    # print(rand_dir)
-    # print(grad_dir.sum())
-    # print(rand_dir.sum())
     cos_x_eta = utils.avg_cos_np(grad_dir.numpy()[np.newaxis,:], rand_dir.numpy()[np.newaxis,:])
-    # cos_x_eta = utils.avg_cos_np(grad_dir.numpy()[np.newaxis,:], grad_dir.numpy()[np.newaxis,:])
     print(cos_x_eta)
-    rx, ry, zs, colors = cal_perturb(model=model, image=images[j], label=labels[j], vec_x=grad_dir, vec_y=rand_dir, range_x=(0,1), range_y=(0,1), grid_size=50)
+    rx, ry, zs, predict = cal_perturb(model=model, image=images[j], label=labels[j], vec_x=grad_dir, vec_y=rand_dir, range_x=(0,1), range_y=(0,1), grid_size=50, batch_size=args.batch_size_eval)
 
-    plot_perturb_plt(rx, ry, zs, colors)
+    plot_perturb_plt(rx, ry, zs, predict, label=labels[j].item(), color_by_loss=False)
 
 
 
@@ -121,16 +119,27 @@ def cal_perturb(model, image, label, vec_x, vec_y, range_x, range_y, grid_size=8
     return rx, ry, loss_list, pre_list
     
 
-def plot_perturb_plt(rx, ry, loss, predict, color_by_loss=True):
+def plot_perturb_plt(rx, ry, loss, predict, label, color_by_loss=True):
     if color_by_loss:
         colors = loss
     else:
-        colors = predict
+        colors = np.empty(predict.shape, dtype=str)
+        for i in range(predict.shape[0]):
+            for j in range(predict.shape[1]):
+                # print(i, j, predict[i][j])
+                if predict[i][j] == label:
+                    colors[i][j] = 'green'
+                else:
+                    colors[i][j] = 'red'
+
     fig = plt.figure()
     ax3 = plt.axes(projection='3d')
 
     X, Y = np.meshgrid(rx, ry)
-    ax3.plot_surface(X, Y, loss, rstride = 1, cstride = 1,cmap='rainbow', linewidth=0)
+    ax3.set_xlabel("v1")
+    ax3.set_ylabel("v2")
+    ax3.set_zlabel("loss")
+    ax3.plot_surface(X, Y, loss, rstride = 1, cstride = 1, facecolors=colors, linewidth=0)
     plt.show()
 
 
