@@ -119,12 +119,13 @@ def main():
     time_train, iteration, best_iteration = 0, 0, 0
     best_iteration_test = 0
     ###
+    eps_discrete_list = [1/255, 2/255, 3/255, 4/255, 5/255, 6/255, 7/255, 8/255]
     eps_discrete = 0/255
     ###
     for epoch in range(args.epochs+1):
         print("----------{}----------".format(epoch))
         if args.discrete_eps:
-            logger.info("eps:{}".format(eps_discrete))
+            logger.info("eps:{:.0f}".format(eps_discrete * 255))
         train_loss, train_reg, train_acc, train_n, grad_norm_x, avg_delta_l2 = 0, 0, 0, 0, 0, 0
         train_gis = 0
         for i, (X, y) in enumerate(train_batches):
@@ -336,10 +337,10 @@ def main():
                         best_iteration_test, test_acc_clean, test_acc_pgd_rr))
         ###
         if args.discrete_eps:
-            eps_discrete += 1/255
-            if eps_discrete > eps:
-                eps_discrete = 1/255
-            
+            # eps_discrete += 1/255
+            # if eps_discrete > eps:
+            #     eps_discrete = 1/255
+            eps_discrete = eps_discrete_list[(epoch) % len(eps_discrete_list)]
         ###
 
         model.train()
