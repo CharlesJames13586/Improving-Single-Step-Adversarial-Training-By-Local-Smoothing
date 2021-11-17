@@ -119,7 +119,7 @@ def main():
     time_train, iteration, best_iteration = 0, 0, 0
     best_iteration_test = 0
     ###
-    eps_discrete_list = [1/255, 2/255, 3/255, 4/255, 5/255, 6/255, 7/255, 8/255]
+    eps_discrete_list = [2/255, 4/255, 6/255, 8/255, 8/255, 8/255, 8/255, 8/255]
     eps_discrete = 0/255
     ###
     for epoch in range(args.epochs+1):
