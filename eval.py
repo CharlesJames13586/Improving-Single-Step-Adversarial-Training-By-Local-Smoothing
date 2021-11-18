@@ -29,6 +29,7 @@ def get_args():
     parser.add_argument('--n_final_eval', default=-1, type=int, help='on how many examples to do the final evaluation; -1 means on all test examples.')
     parser.add_argument('--naive_eval', action='store_true')
     parser.add_argument('--pgd_eval', action='store_true')
+    parser.add_argument('--pgd_alpha', default=2.0, type=float, help="测试时pgd攻击下的alpha")
     # parser.add_argument('--n_restarts', default=10, type=int, help='测试时pgd攻击的迭代次数')
 
     return parser.parse_args()
@@ -73,7 +74,7 @@ def main():
         # test_acc_pgd_rr, _, deltas_pgd_rr = utils.rob_acc(test_batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts)
 
         if args.pgd_eval:
-            test_acc_pgd_rr, _, deltas_pgd_rr = utils.rob_acc(test_batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=False)
+            test_acc_pgd_rr, _, deltas_pgd_rr = utils.rob_acc(test_batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=True)
             print('[{}: test on {:.1f}k points][iter={}] pgd_rr {:.2%}, {:.2f}m'.format(label,len(test_batches)/1000, "???", test_acc_pgd_rr, (time.time()-start_time)/60))
 
 

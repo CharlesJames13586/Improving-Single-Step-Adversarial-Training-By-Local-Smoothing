@@ -41,6 +41,7 @@ def get_args():
     parser.add_argument('--n_filters_cnn', default=16, type=int, help='#filters on each conv layer (for model==cnn)')
     parser.add_argument('--n_final_eval', default=-1, type=int, help='on how many examples to do the final evaluation; -1 means on all test examples.')
     parser.add_argument('--n_restarts', default=1, type=int, help='测试时pgd攻击的迭代次数')
+    parser.add_argument('--pgd_alpha', default=2.0, type=float)
     parser.add_argument('--pgd_alpha_train', default=2.0, type=float)
     parser.add_argument('--pgd_train_n_iters', default=10, type=int, help='n_iter of pgd for training (if attack=pgd)')
     parser.add_argument('--seed', default=0, type=int)
@@ -81,6 +82,7 @@ def main():
 
     eps = args.eps / 255                                                       # 参数指定的单位是像素值，改为标准化的值
     pgd_alpha = args.pgd_alpha / 255
+    print("pgd_alpha{}".format(args.pgd_alpha))
     pgd_alpha_train = args.pgd_alpha_train / 255
 
     train_data_augm = False if args.dataset in ['mnist'] else True
