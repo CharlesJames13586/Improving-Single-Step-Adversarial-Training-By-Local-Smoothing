@@ -453,3 +453,13 @@ def nullcontext(enter_result=None):
 # 将tensor按照图片像素离散化
 def tensor_discrete(tensor):
     tensor.mul_(255).round_().div_(255)
+
+
+def load_model(timestamp):
+    for filename in os.listdir("models/"):
+        if timestamp in filename:
+            model_name = "models/" + filename
+            print(model_name)
+            break
+    model_saved = torch.load(model_name)
+    return model_saved

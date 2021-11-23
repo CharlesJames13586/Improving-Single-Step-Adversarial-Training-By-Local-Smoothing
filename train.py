@@ -32,6 +32,7 @@ def get_args():
     parser.add_argument('--grad_align_cos_lambda', default=0.0, type=float, help='coefficient of the cosine gradient alignment regularizer')
     parser.add_argument('--grad_input_sum_coeff', type=float, default=0.0, help='增加到loss上的模型相对输入X的的导数和的系数')
     parser.add_argument('--half_prec', action='store_true', help='if enabled, runs everything as half precision')
+    parser.add_argument('--load_model', default='', type=str, help='如果需要继续训练已有的模型，请填入模型的名字子串')
     parser.add_argument('--lr_max', default=0.2, type=float, help='0.05 in Table 1, 0.2 in Figure 2')
     parser.add_argument('--lr_schedule', default='cyclic', choices=['cyclic', 'piecewise'])
     parser.add_argument('--mast', action='store_true', help="如果为true，则使用MAST")
@@ -93,6 +94,11 @@ def main():
 
     model = models.get_model(args.model, n_cls, half_prec, data.shapes_dict[args.dataset], args.n_filters_cnn).cuda()
     model.apply(utils.initialize_weights)
+    if args.load_model != '':
+        print("正在加载模型")
+        model_saved = utils.load_model(args.load_model)
+        model.load_state_dict(model_saved['last'])
+        del model_saved
     model.train()
 
     # 设置 optimizer
@@ -122,6 +128,8 @@ def main():
     best_iteration_test = 0
     ###
     eps_discrete_list = [2/255, 4/255, 6/255, 8/255, 8/255, 8/255, 8/255, 8/255]
+    if eps == 16:
+        eps_discrete_list = [2/255, 4/255, 6/255, 8/255, 10/255, 12/255, 14/255, 16/255]
     eps_discrete = 0/255
     ###
     for epoch in range(args.epochs+1):
