@@ -21,7 +21,7 @@ def get_args():
     parser.add_argument('--attack_iters', default=10, type=int, help='n_iter of pgd for evaluation')
     parser.add_argument('--batch_size', default=128, type=int)
     parser.add_argument('--batch_size_eval', default=256, type=int, help='batch size for the final eval with pgd rr; 6 GB memory is consumed for 1024 examples with fp32 network')
-    parser.add_argument('--dataset', default='cifar10', choices=['mnist', 'svhn', 'cifar10', 'cifar10_binary', 'cifar10_binary_gs', 'uniform_noise', 'imagenet'], type=str)
+    parser.add_argument('--dataset', default='cifar10', choices=['mnist', 'svhn', 'cifar10', 'cifar10_binary', 'cifar10_binary_gs', 'uniform_noise', 'imagenet', 'cifar100', 'tiny_imagenet'], type=str)                # 补充cifar100数据集
     parser.add_argument('--debug', action='store_true')
     parser.add_argument('--discrete_eps', action='store_true', help="离散的eps")
     parser.add_argument('--epochs', default=30, type=int, help='15 epochs to reach 45% adv acc, 30 epochs to reach the reported clean/adv accs')
@@ -34,7 +34,7 @@ def get_args():
     parser.add_argument('--half_prec', action='store_true', help='if enabled, runs everything as half precision')
     parser.add_argument('--load_model', default='', type=str, help='如果需要继续训练已有的模型，请填入模型的名字子串')
     parser.add_argument('--lr_max', default=0.2, type=float, help='0.05 in Table 1, 0.2 in Figure 2')
-    parser.add_argument('--lr_schedule', default='cyclic', choices=['cyclic', 'piecewise'])
+    parser.add_argument('--lr_schedule', default='cyclic', choices=['cyclic', 'piecewise', 'same'])
     parser.add_argument('--mast', action='store_true', help="如果为true，则使用MAST")
     parser.add_argument('--minibatch_replay', default=1, type=int, help='minibatch replay as in AT for Free (default=1 is usual training)')
     parser.add_argument('--model', default='resnet18', choices=['resnet18', 'lenet', 'cnn'], type=str)
@@ -73,6 +73,11 @@ def main():
     half_prec = args.half_prec
     n_cls = 2 if 'binary' in args.dataset else 10
 
+    if args.dataset == "cifar100":
+        n_cls = 100
+    if args.dataset == "tiny_imagenet":
+        n_cls = 200
+
     np.random.seed(args.seed)
     torch.manual_seed(args.seed)
     torch.cuda.manual_seed(args.seed)
@@ -93,12 +98,14 @@ def main():
     test_batches_fast = data.get_loaders(args.dataset, n_eval_every_k_iter, args.batch_size_eval, train_set=False, shuffle=False, data_augm=False)
 
     model = models.get_model(args.model, n_cls, half_prec, data.shapes_dict[args.dataset], args.n_filters_cnn).cuda()
-    model.apply(utils.initialize_weights)
+    
     if args.load_model != '':
         print("正在加载模型")
         model_saved = utils.load_model(args.load_model)
         model.load_state_dict(model_saved['last'])
         del model_saved
+    else:
+        model.apply(utils.initialize_weights)
     model.train()
 
     # 设置 optimizer
@@ -128,8 +135,12 @@ def main():
     best_iteration_test = 0
     ###
     eps_discrete_list = [2/255, 4/255, 6/255, 8/255, 8/255, 8/255, 8/255, 8/255]
-    if eps == 16:
-        eps_discrete_list = [2/255, 4/255, 6/255, 8/255, 10/255, 12/255, 14/255, 16/255]
+    # print(eps - 16/255)
+    # print(eps_discrete_list)
+    if abs(eps - 16/255) < 1/266:
+        # eps_discrete_list = [2/255, 4/255, 4/255, 6/255, 8/255, 8/255, 10/255, 12/255, 12/255, 14/255, 16/255, 16/255]
+        eps_discrete_list = [2/255, 4/255, 6/255, 8/255, 10/255, 12/255, 14/255, 16/255] + [16/255]*4
+        print(eps_discrete_list)
     eps_discrete = 0/255
     ###
     for epoch in range(args.epochs+1):
@@ -141,7 +152,6 @@ def main():
         for i, (X, y) in enumerate(train_batches):
             if i % args.minibatch_replay != 0 and i > 0:  # take new inputs only each `minibatch_replay` iterations
                 X, y = X_prev, y_prev                     # Free-AT 
-            
             time_start_iter = time.time()
             # epoch=0 runs only for one iteration (to check the training stats at init)
             if epoch == 0 and i > 0:
@@ -159,7 +169,7 @@ def main():
                 delta = utils.attack_pgd_training(model, X, y, eps_pgd_train, pgd_alpha_train, opt, half_prec, args.pgd_train_n_iters, rs=pgd_rs)
                 if args.attack == "pgd_corner":
                     delta = eps * torch.sign(delta)                            # 这种pgd_corner和fgsm有什么区别
-                    delta = utils.clamp(X+delta, 0, 1) - X
+                    delta = utils.clamp(X+delta, 0, 1) - X                     # pgd_corner直接将扰动拉到最大ok
             
             elif args.attack == "fgsm":
                 if args.minibatch_replay == 1:
@@ -210,7 +220,6 @@ def main():
 
             elif args.attack == "none":
                 delta = torch.zeros_like(X, requires_grad=True)
-
             else:
                 raise ValueError("Wrong args.attack")
 
@@ -234,15 +243,16 @@ def main():
                 cos = torch.sum(grad1_normalized * grad2_normalized, (1, 2, 3))
                 reg += args.grad_align_cos_lambda * (1.0 - cos.mean())
                 
-
                 loss += reg
 
-            ########## G_I_S
+            ########## GradSum
             grad_input_sum = torch.zeros(1).cuda()[0]
             if args.grad_input_sum_coeff != 0.0:
-                if args.grad_align_cos_lambda == 0.0:
+                if args.attack_init == 'zero' and args.grad_align_cos_lambda == 0.0:
                     grad2 = utils.get_input_grad(model, X, y, opt, eps, half_prec, delta_init="random_uniform", backprop=True)
-                grad_sum = (grad2 * grad2).sum() ** 0.5
+                    grad_sum = (grad2 * grad2).sum() ** 0.5
+                elif args.attack_init == 'random':
+                    grad_sum = (grad * grad).sum() ** 0.5
                 # print(grad_sum)
                 # print(loss)
                 grad_input_sum = args.grad_input_sum_coeff * grad_sum
@@ -285,7 +295,7 @@ def main():
                 test_acc_fgsm, test_loss_fgsm, fgsm_deltas = utils.rob_acc(test_batches_fast, model, eps, eps, opt, half_prec, 1, 1, rs=False)      
                 test_acc_pgd, test_loss_pgd, pgd_deltas = utils.rob_acc(test_batches_fast, model, eps, pgd_alpha, opt, half_prec, args.attack_iters, args.n_restarts, rs=True)
                 cos_fgsm_pgd = utils.avg_cos_np(fgsm_deltas, pgd_deltas)
-                train_acc_pgd, _, _ = utils.rob_acc(train_batches_fast, model, eps, pgd_alpha, opt, half_prec, args.attack_iters, args.n_restarts, rs=True)           # 用于 early stopping
+                train_acc_pgd, _, _ = utils.rob_acc(train_batches_fast, model, eps, pgd_alpha, opt, half_prec, args.attack_iters, args.n_restarts, rs=True)         # 用于 early stopping
 
                 grad_x = utils.get_grad_np(model, test_batches_fast, eps, opt, half_prec, rs=False)
                 grad_eta = utils.get_grad_np(model, test_batches_fast, eps, opt, half_prec, rs=True)

@@ -74,7 +74,8 @@ class PreActResNet(nn.Module):
         self.layer2 = self._make_layer(block, 128, num_blocks[1], stride=2)
         self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
         self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
-        self.linear = nn.Linear(512 * block.expansion, n_cls)
+        # self.linear = nn.Linear(512 * block.expansion, n_cls)      # (3, 32, 32)输入对应的
+        self.linear = nn.Linear(2048, n_cls)                         # tiny_imagenet的参数，tiny_imagenet的输入是(3,64,64)
         
         layers = [self.normalize, self.conv1, self.layer1[0].bn1]
         self.model_preact_hl1 = nn.Sequential(*layers)
@@ -95,17 +96,24 @@ class PreActResNet(nn.Module):
         x = self.normalize(x)
         out = self.conv1(x)
         # print("conv1(x) {}".format(out.mean()))
+        # print(out.shape)
         out = self.layer1(out)
         # print("layer1(x) {}".format(out.mean()))
+        # print(out.shape)
         out = self.layer2(out)
         # print("layer2(x) {}".format(out.mean()))
+        # print(out.shape)
         out = self.layer3(out)
         # print("layer3(x) {}".format(out.mean()))
+        # print(out.shape)
         out = self.layer4(out)
         # print("layer4(x) {}".format(out.mean()))
+        # print(out.shape)
         out = F.avg_pool2d(out, 4)
         out = out.view(out.size(0), -1)
+        # print(out.shape)
         out = self.linear(out)
+        # print(out.shape)
 
         avg_preacts_all = []
         for layer in [*self.layer1, *self.layer2, *self.layer3, *self.layer4]:

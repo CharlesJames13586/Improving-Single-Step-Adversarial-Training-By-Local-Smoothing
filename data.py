@@ -1,6 +1,7 @@
 from torchvision import datasets, transforms
 import numpy as np
 import torch
+from tiny_imagenet import TinyImageNet
 
 
 datasets_dict = {
@@ -8,7 +9,9 @@ datasets_dict = {
     'svhn': datasets.SVHN, 
     'cifar10': datasets.CIFAR10,
     'cifar10_binary': datasets.CIFAR10,
-    'cifar10_binary_gs': datasets.CIFAR10    
+    'cifar10_binary_gs': datasets.CIFAR10,
+    'cifar100': datasets.CIFAR100,
+    'tiny_imagenet':TinyImageNet 
 }
 
 
@@ -18,15 +21,18 @@ shapes_dict = {
     'cifar10': (50000, 3, 32, 32),
     'cifar10_binary': (10000, 3, 32, 32), 
     'cifar10_binary_gs': (10000, 1, 32, 32),
-    'uniform_noise': (1000, 1, 28, 28)
+    'uniform_noise': (1000, 1, 28, 28),
+    'cifar100': (50000, 3, 32, 32),
+    'tiny_imagenet': (100000, 3, 64, 64)
 }
 
 
 def get_loaders(dataset, n_ex, batch_size, train_set, shuffle, data_augm):
     dir_ = 'data/'
     dataset_f = datasets_dict[dataset]
-    num_workers = 2
     data_augm_transforms = [transforms.RandomCrop(32, padding=4)]
+    if dataset == 'tiny_imagenet':
+        data_augm_transforms = [transforms.RandomCrop(64, padding=4)]
     if dataset not in ['mnist', 'svhn']:
         # 数字类型的数据集不进行水平翻转
         data_augm_transforms.append(transforms.RandomHorizontalFlip())
@@ -38,7 +44,10 @@ def get_loaders(dataset, n_ex, batch_size, train_set, shuffle, data_augm):
 
 
     if train_set:
-        if dataset != 'svhn':
+        if dataset == 'tiny_imagenet':
+            data = dataset_f(dir_, train=True,
+            transform=transform, download=True)
+        elif dataset != 'svhn':
             data = dataset_f(dir_, train=True, transform=transform, download=True)
         else:
             data = dataset_f(dir_, split='train', transform=transform, download=True)
@@ -60,7 +69,7 @@ def get_loaders(dataset, n_ex, batch_size, train_set, shuffle, data_augm):
 
         data.data, data.targets = data.data[:n_ex], data.targets[:n_ex]
 
-        loader = torch.utils.data.DataLoader(dataset=data, batch_size=batch_size, shuffle=shuffle, pin_memory=True, num_workers=num_workers, drop_last=True)
+        loader = torch.utils.data.DataLoader(dataset=data, batch_size=batch_size, shuffle=shuffle, pin_memory=True, drop_last=True)
 
     else:
         if dataset != 'svhn':
@@ -81,7 +90,7 @@ def get_loaders(dataset, n_ex, batch_size, train_set, shuffle, data_augm):
             data.targets = data.labels
         data.data, data.targets = data.data[:n_ex], data.targets[:n_ex]
 
-        loader = torch.utils.data.DataLoader(dataset=data, batch_size=batch_size, shuffle=shuffle, pin_memory=False, num_workers=num_workers, drop_last=False)
+        loader = torch.utils.data.DataLoader(dataset=data, batch_size=batch_size, shuffle=shuffle, pin_memory=False, drop_last=False)
 
 
     return loader
