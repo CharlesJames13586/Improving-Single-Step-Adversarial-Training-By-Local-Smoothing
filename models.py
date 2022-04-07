@@ -126,6 +126,9 @@ class PreActResNet(nn.Module):
 def PreActResNet18(n_cls, cuda=True, half_prec=False):
     return PreActResNet(PreActBlock, [2, 2, 2, 2], n_cls=n_cls, cuda=cuda, half_prec=half_prec)
 
+def PreActResNet34(n_cls, cuda=True, half_prec=False):
+    return PreActResNet(PreActBlock, [3, 4, 6, 3], n_cls=n_cls, cuda=cuda, half_prec=half_prec)
+
 
 
 class Flatten(nn.Module):
@@ -199,6 +202,8 @@ class CNN(CNNBase):
 def get_model(model_name, n_cls, half_prec, shapes_dict, n_filters_cnn):
     if model_name == "resnet18":
         model = PreActResNet18(n_cls, half_prec=half_prec)
+    elif model_name == "resnet34":
+        model = PreActResNet34(n_cls, half_prec=half_prec)
     elif model_name == "cnn":
         model = CNN(n_cls, shapes_dict, 1, n_filters_cnn)
     else:

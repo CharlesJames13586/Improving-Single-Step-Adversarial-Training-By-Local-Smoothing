@@ -37,7 +37,7 @@ def get_args():
     parser.add_argument('--lr_schedule', default='cyclic', choices=['cyclic', 'piecewise', 'same'])
     parser.add_argument('--mast', action='store_true', help="如果为true，则使用MAST")
     parser.add_argument('--minibatch_replay', default=1, type=int, help='minibatch replay as in AT for Free (default=1 is usual training)')
-    parser.add_argument('--model', default='resnet18', choices=['resnet18', 'lenet', 'cnn'], type=str)
+    parser.add_argument('--model', default='resnet18', choices=['resnet18', 'resnet34', 'lenet', 'cnn'], type=str)
     parser.add_argument('--n_eval_every_k_iter', default=256, type=int, help='on how many examples to eval every k iters')
     parser.add_argument('--n_filters_cnn', default=16, type=int, help='#filters on each conv layer (for model==cnn)')
     parser.add_argument('--n_final_eval', default=-1, type=int, help='on how many examples to do the final evaluation; -1 means on all test examples.')
@@ -57,7 +57,7 @@ def main():
 
     cur_timestamp = str(datetime.now())[:-3]                                   # 使用毫秒是为了防止可能存在的命名冲突
     cur_timestamp = cur_timestamp.replace(':', '')                             # 文件名带':'的暂时无法在服务器上创建，所以删除了':'
-    model_width = {'linear':'', 'cnn':args.n_filters_cnn, 'lenet':'', 'resnet18':''}[args.model]
+    model_width = {'linear':'', 'cnn':args.n_filters_cnn, 'lenet':'', 'resnet18':'', 'resnet34':''}[args.model]
     model_str = "{}{}".format(args.model, model_width)
     model_name = "{} dataset={} model={} eps={} attack={} m={} attack_init={} fgsm_alpha={} epochs={} pdg={}-{} grad_align_cos_lambda={} lr_max={} seed={}".format(
         cur_timestamp, args.dataset, model_str, args.eps, args.attack, args.minibatch_replay, args.attack_init, args.fgsm_alpha, args.epochs, args.pgd_alpha_train,
@@ -109,7 +109,7 @@ def main():
     model.train()
 
     # 设置 optimizer
-    if args.model == "resnet18":
+    if args.model == "resnet18" or args.model == "resnet34":
         opt = torch.optim.SGD(model.parameters(), lr=args.lr_max, momentum=0.9, weight_decay=args.weight_decay)
     elif args.model == "cnn":
         opt = torch.optim.Adam(model.parameters(), lr=args.lr_max, weight_decay=args.weight_decay)
@@ -275,6 +275,7 @@ def main():
             train_gis += grad_input_sum.item() * y.size(0)
             train_acc += (output.max(1)[1] == y).sum().item()
             train_n += y.size(0)                                               # 已经训练的样本个数
+            print("acc:{}".format(train_acc / train_n))
 
             with torch.no_grad():                                              # no grad 为了统计信息
                 grad_norm_x += utils.l2_norm_batch(grad).sum().item()
@@ -334,7 +335,8 @@ def main():
                 # utils.model_eval(model, half_prec)
                 model.eval()
                 opt = torch.optim.SGD(model.parameters(), lr=0)
-
+                
+                # 指定最后评估的PGD为50-10
                 attack_iters, n_restarts = (50, 10) if not args.debug else (10, 3)
                 test_acc_clean, _, _ = utils.rob_acc(test_batches, model, eps, pgd_alpha, opt, half_prec, 0, 1)
                 test_acc_pgd_rr, _, deltas_pgd_rr = utils.rob_acc(test_batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts)
