@@ -67,8 +67,10 @@ def get_lr_schedule(lr_schedule_type, n_epochs, lr_max):
                 return lr_max / 10
             else:
                 return lr_max / 100
+    elif lr_schedule_type == "same":
+        lr_schedule = lambda t: lr_max 
     else:
-        raise ValueError("Wrong lr_schedule_type, here only support 'cyclic' or 'piecewise")
+        raise ValueError("Wrong lr_schedule_type, here only support 'cyclic' or 'piecewise' or 'same' ")
 
     return lr_schedule
 

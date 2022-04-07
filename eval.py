@@ -1,7 +1,8 @@
 # todo:
-# 1. 对训练模型的鲁棒性测试                  ✅
-# 2. 对训练模型的FGSM攻击测试（给论文增加数据） 🤔
-# 3. 增加计算时间功能                       ✅
+# 1. 对训练模型的鲁棒性测试                     ✅
+# 2. 对训练模型的FGSM攻击测试(给论文增加数据)     ✅
+# 3. 增加计算时间功能                          ✅
+# 4. 增加PGD攻击时计算扰动数据和原始数据之间的距离 🤔
 
 import argparse
 import torch
@@ -10,6 +11,7 @@ import utils
 import data
 import models
 import time 
+import numpy
 
 
 def get_args():
@@ -22,7 +24,7 @@ def get_args():
     parser.add_argument('--fgsm_alpha', default=8.0, type=float, help="测试时fgsm攻击下的alpha")
     parser.add_argument('--fgsm_eval', action='store_true')
     parser.add_argument('--half_prec', action='store_true', help='if enabled, runs everything as half precision')
-    parser.add_argument("--timestamp", default="2021-09-22 000000", help="模型训练的时间戳，用来选择被测试的模型")
+    parser.add_argument("--timestamp", default="2021-10-26 153624", help="模型训练的时间戳，用来选择被测试的模型")
     parser.add_argument('--model', default='resnet18', choices=['resnet18', 'lenet', 'cnn'], type=str)
     parser.add_argument('--model_labels', default=['last', 'best', 'best_test'], choices=['last', 'best', 'best_test'], type=str, nargs='+') 
     parser.add_argument('--n_filters_cnn', default=16, type=int, help='#filters on each conv layer (for model==cnn)')
@@ -76,6 +78,14 @@ def main():
         if args.pgd_eval:
             test_acc_pgd_rr, _, deltas_pgd_rr = utils.rob_acc(test_batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=True)
             print('[{}: test on {:.1f}k points][iter={}] pgd_rr {:.2%}, {:.2f}m'.format(label,len(test_batches)/1000, "???", test_acc_pgd_rr, (time.time()-start_time)/60))
+            # 计算扰动距离
+            dist_sum = 0.0
+            for _, x_delta in enumerate(deltas_pgd_rr):
+                dist = numpy.sqrt(numpy.sum(numpy.square(x_delta)))
+                dist_sum = dist_sum + dist
+
+            avg_dist = dist_sum / deltas_pgd_rr.shape[0]
+            print(avg_dist)
 
 
 

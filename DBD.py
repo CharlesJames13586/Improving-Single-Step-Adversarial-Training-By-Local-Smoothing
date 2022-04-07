@@ -25,7 +25,7 @@ def get_args():
     parser.add_argument('--batch_size_eval', default=1, type=int, help='batch size for the final eval with pgd rr; 6 GB memory is consumed for 1024 examples with fp32 network')
     parser.add_argument('--dataset', default='cifar10', choices=['mnist', 'svhn', 'cifar10', 'cifar10_binary', 'cifar10_binary_gs', 'uniform_noise', 'imagenet'], type=str)
     parser.add_argument('--eps', default=8.0, type=float)
-    parser.add_argument("--timestamp", default="2021-10-12", help="模型训练的时间戳，用来选择被测试的模型")
+    parser.add_argument("--timestamp", default="2021-10-26", help="模型训练的时间戳，用来选择被测试的模型")
     parser.add_argument('--model', default='resnet18', choices=['resnet18', 'lenet', 'cnn'], type=str)
     parser.add_argument('--model_label', default='last', choices=['last', 'best', 'best_test'], type=str)
     parser.add_argument('--n_final_eval', default=-1, type=int, help='on how many examples to do the final evaluation; -1 means on all test examples.')
