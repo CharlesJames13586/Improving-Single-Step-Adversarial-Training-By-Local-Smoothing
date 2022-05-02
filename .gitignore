@@ -4,6 +4,9 @@ data/
 models/
 logs/
 venv-torch/
-sh/
+sh/*
 output/
 nohup.out
+*.png
+*.pdf
+

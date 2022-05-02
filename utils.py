@@ -322,11 +322,11 @@ def attack_pgd_discrete(model, X, y, eps, alpha, opt, half_prec, attack_iters, n
 
 
 # 计算在pgd攻击下的正确率
-def rob_acc(batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=True, linf_proj=True, l2_grad_update=False, corner=False, verbose=False, cuda=True):
+def rob_acc(batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=True, linf_proj=True, l2_grad_update=False, corner=False, verbose=False, cuda=True, multiGPU=False):
     n_corr_classified, train_loss_sum, n_ex = 0, 0.0, 0
     pgd_delta_list, pgd_delta_proj_list = [], []
     progress = True if len(batches) >= 20 else False
-    print()
+    # print("batches.size:{}".format(len(batches)))
     for i, (X, y) in enumerate(batches):
         if progress:
             print("{:.2%} [{}/{}]".format(i/len(batches), i, len(batches)), end='\r')
@@ -342,20 +342,26 @@ def rob_acc(batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_rest
         pgd_delta_proj = clamp(X + eps*torch.sign(pgd_delta), 0, 1, cuda) - X  # needed just for investigation
 
         with torch.no_grad():
+            # print("X:{}".format(X.shape))
+            # print("pgd_delta:{}".format(pgd_delta.shape))
             output = model(X + pgd_delta)
             loss = F.cross_entropy(output, y)
         
         n_corr_classified += (output.max(1)[1] == y).sum().item()
         train_loss_sum += loss.item() * y.size(0)
         n_ex += y.size(0)
+        # print("n_ex:{}".format(n_ex))
         pgd_delta_list.append(pgd_delta.cpu().numpy())
         pgd_delta_proj_list.append(pgd_delta_proj.cpu().numpy())
 
     robust_acc = n_corr_classified / n_ex
     avg_loss = train_loss_sum / n_ex
     pgd_delta_np = np.vstack(pgd_delta_list)
-
-    return robust_acc, avg_loss, pgd_delta_np
+    
+    if multiGPU:
+        return robust_acc, avg_loss, pgd_delta_np, n_corr_classified, n_ex
+    else:
+        return robust_acc, avg_loss, pgd_delta_np
 
 
 def rob_acc_discrete(batches, model, eps, pgd_alpha, opt, half_prec, attack_iters, n_restarts, rs=True, linf_proj=True, l2_grad_update=False, corner=False, verbose=False, cuda=True):

@@ -41,21 +41,22 @@ class TinyImageNet(VisionDataset) :
             root = root[:-1]
         
         self._ensure_dataset_loaded(root)
-        
+        if download:
+            self._download_dataset("./data")
+        self.data = []
         if train :
             self.dataset = dsets.ImageFolder(root+'/tiny-imagenet-200/train', 
                                           transform=transform)
-            # self.data, self.targets = self.dataset.samples
-            self.data = self.dataset.samples[:][0]
-            self.targets = self.dataset.targets
+            
+            
         else :
             self.dataset = dsets.ImageFolder(root+'/tiny-imagenet-200/val_fixed',
                                           transform=transform)
-            # self.data, self.targets = self.dataset.samples
-            self.data = self.dataset.samples[:][0]
+            
+        for adr, _ in self.dataset.samples:
+            self.data.append(adr)
             self.targets = self.dataset.targets
-        if download:
-            self._download_dataset("./data")
+        
         # self.sum = 0
         
     def _download_dataset(self, path,
@@ -102,10 +103,10 @@ class TinyImageNet(VisionDataset) :
                 copyfile(original_image_path, copied_image_path)
 
     def __len__(self):
-        return len(self.dataset.samples)
+        return len(self.data)
 
     def __getitem__(self, index:int) -> Tuple[Any, Any]:
-        img_path, target = self.dataset.samples[index]
+        img_path, target = self.data[index], self.targets[index]
         
         # pil_img = Image.open(img_path)
         # array=np.asarray(pil_img)
@@ -121,3 +122,7 @@ class TinyImageNet(VisionDataset) :
         if img.shape[0] == 1:
             img = torch.cat((img, img, img))
         return img, target
+
+
+if __name__ == "__main__":
+    dataset = TinyImageNet()
