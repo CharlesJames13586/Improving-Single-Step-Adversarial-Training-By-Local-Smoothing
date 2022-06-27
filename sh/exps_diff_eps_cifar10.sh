@@ -10,9 +10,12 @@ else
 fi
 ### To reproduce the curves, one has to run all the models for seed in {0, 1, 2, 3, 4}, and then average the results
 # Train
-# python train.py --attack=none --attack_init=zero --attack_iters=50 --n_restarts=10 --eps=16 --epochs=96 --eval_iter_freq=200 --batch_size=256 --batch_size_eval=1024 --grad_input_sum_coeff=60 --lr_max=0.04 --eval_early_stopped_model --n_final_eval=-1 --seed=0
+# python train.py --attack=none --attack_init=zero --eps=8 --epochs=96 --eval_iter_freq=200 --batch_size=256 --batch_size_eval=1024 --lr_max=0.04 --eval_early_stopped_model --n_final_eval=-1 --seed=0
+
 # FGSM
 # python train.py --attack=fgsm --fgsm_alpha=1.0 --eps=16  --attack_init=zero --epochs=96 --eval_iter_freq=200 --batch_size=256 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --seed=2022
+python train.py --model=cnn --n_filters_cnn=6 --lr_max=0.003 --attack=fgsm --fgsm_alpha=1.0 --eps=10  --attack_init=zero --epochs=30 --eval_iter_freq=195 --batch_size=256 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --seed=2022 --print_g_i_s
+# python train.py --model=cnn --n_filters_cnn=64 --lr_max=0.003 --attack=none --fgsm_alpha=1.0 --eps=10  --attack_init=zero --epochs=30 --eval_iter_freq=200 --batch_size=256 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --seed=2022 --print_g_i_s
 # PGD-AT
 # python train.py --attack=pgd --pgd_alpha_train=8 --pgd_train_n_iters=2 --attack_iters=50 --n_restarts=10 --eps=16  --attack_init=zero --epochs=96 --batch_size=256 --eval_iter_freq=200 --batch_size_eval=1024 --grad_input_sum_coeff=0 --eval_early_stopped_model --n_final_eval=-1 --seed=0
 # python train.py --attack=pgd --pgd_train_n_iters=2 --pgd_alpha_train=8 --attack_iters=50 --n_restarts=10 --eps=16  --attack_init=zero --epochs=96 --batch_size=256 --eval_iter_freq=200 --batch_size_eval=1024 --grad_input_sum_coeff=1.0 --eval_early_stopped_model --n_final_eval=-1 --seed=2022
@@ -44,7 +47,7 @@ fi
 # FSGM-AT
 # python train.py --attack=fgsm --attack_init=zero --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
 # FGSM+Discrete_eps-AT
-python train.py --attack=fgsm --attack_init=zero --discrete_eps --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=16 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=1998
+# python train.py --attack=fgsm --attack_init=zero --discrete_eps --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=16 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=1998
 # FGSM+RS+Discrete_eps-AT
 # python train.py --attack=fgsm --attack_init=random --discrete_eps --fgsm_alpha=1.0 --attack_iters=50 --n_restarts=10 --eps=8 --epoch=96 --eval_iter_freq=200 --batch_size=256 --grad_input_sum_coeff=0.0 --grad_align_cos_lambda=0.0 --lr_max=0.04 --batch_size_eval=1024 --eval_early_stopped_model --n_final_eval=-1 --start_eval_epoch=0 --seed=0
 # FGSM+GradAlign+Discrete_eps-AT

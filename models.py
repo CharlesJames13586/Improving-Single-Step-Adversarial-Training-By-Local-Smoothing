@@ -74,8 +74,8 @@ class PreActResNet(nn.Module):
         self.layer2 = self._make_layer(block, 128, num_blocks[1], stride=2)
         self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
         self.layer4 = self._make_layer(block, 512, num_blocks[3], stride=2)
-        # self.linear = nn.Linear(512 * block.expansion, n_cls)      # (3, 32, 32)输入对应的
-        self.linear = nn.Linear(2048, n_cls)                         # tiny_imagenet的参数，tiny_imagenet的输入是(3,64,64)
+        self.linear = nn.Linear(512 * block.expansion, n_cls)      # (3, 32, 32)输入对应的
+        # self.linear = nn.Linear(2048, n_cls)                         # tiny_imagenet的参数，tiny_imagenet的输入是(3,64,64)
         
         layers = [self.normalize, self.conv1, self.layer1[0].bn1]
         self.model_preact_hl1 = nn.Sequential(*layers)
@@ -183,6 +183,10 @@ class CNNBase(ModuleWithStats):
 
 class CNN(CNNBase):
     def __init__(self, n_cls, shape_in, n_conv, n_filters):
+        # n_cls: 分类的类别个数
+        # shape_in: 数据集的维度信息
+        # n_conv: CNN的层数
+        # n_filters: 每层CNN的核个数
         super(CNN, self).__init__()
         input_size = shape_in[2]
         conv_blocks = []

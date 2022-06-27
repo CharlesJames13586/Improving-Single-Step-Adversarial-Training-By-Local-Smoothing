@@ -6,7 +6,7 @@ logs/
 venv-torch/
 sh/*
 output/
-nohup.out
+*.out
 *.png
 *.pdf
-
+npy/

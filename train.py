@@ -13,6 +13,7 @@ from torch.nn import functional as F
 import copy
 import time
 
+# torch.cuda.set_device(4)
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -45,9 +46,11 @@ def get_args():
     parser.add_argument('--pgd_alpha', default=2.0, type=float)
     parser.add_argument('--pgd_alpha_train', default=2.0, type=float)
     parser.add_argument('--pgd_train_n_iters', default=10, type=int, help='n_iter of pgd for training (if attack=pgd)')
+    parser.add_argument('--print_g_i_s', action='store_true', help="输出g_i_s")
     parser.add_argument('--seed', default=0, type=int)
     parser.add_argument('--start_eval_epoch', default=0, type=int, help="开始评估的epoch")
     parser.add_argument('--weight_decay', default=5e-4, type=float, help='weight decay aka l2 regularization')
+    parser.add_argument('--weight_clip', action='store_true', help="对权重进行裁剪")
 
     return parser.parse_args()
 
@@ -146,6 +149,9 @@ def main():
         print(eps_discrete_list)
     eps_discrete = 0/255
     ###
+    if args.model == "cnn":
+        cnn_weights = []
+        cnn_bias = []
     for epoch in range(args.epochs+1):
         print("----------{}----------".format(epoch))
         if args.discrete_eps:
@@ -251,17 +257,17 @@ def main():
 
             ########## GradSum
             grad_input_sum = torch.zeros(1).cuda()[0]
-            if args.grad_input_sum_coeff != 0.0:
+            if args.grad_input_sum_coeff != 0.0 or args.print_g_i_s:
                 if args.attack_init == 'zero' and args.grad_align_cos_lambda == 0.0:
                     grad2 = utils.get_input_grad(model, X, y, opt, eps, half_prec, delta_init="random_uniform", backprop=True)
                     grad_sum = (grad2 * grad2).sum() ** 0.5
                 elif args.attack_init == 'random':
                     grad_sum = (grad * grad).sum() ** 0.5
-                print("grad_sum:{}".format(grad_sum), end=' ')
-                print("pre_loss:{}".format(loss), end=' ')
-                grad_input_sum = args.grad_input_sum_coeff * grad_sum
-                loss += grad_input_sum
-                print("loss:{}".format(loss))
+                # print("grad_sum:{}".format(grad_sum), end=' ')
+                # print("pre_loss:{}".format(loss), end=' ')
+                grad_input_sum =  grad_sum
+                loss += args.grad_input_sum_coeff * grad_input_sum
+                # print("loss:{}".format(loss))
                 
 
 
@@ -271,15 +277,24 @@ def main():
                 opt.zero_grad()
                 utils.backward(loss, opt, half_prec)
                 nn.utils.clip_grad_norm_(model.parameters(), max_norm=20)
+                # if args.weight_clip:
+                #     nn.utils.clip_grad_norm_(model.parameters(), max_norm=0.2, norm_type='inf')
                 opt.step()
+                if args.weight_clip:
+                    norm = 0.1
+                    for param in model.parameters():
+                        max_value = norm * torch.ones_like(param.data)
+                        param.data = torch.where(param.data < 0.2, param.data, max_value)
+                        min_value = -norm * torch.ones_like(param.data)
+                        param.data = torch.where(param.data > -0.2, param.data, min_value)
 
             time_train += time.time() - time_start_iter
             train_loss += loss.item() * y.size(0)
             train_reg += reg.item() * y.size(0)                                # Returns the value of this tensor as a standard Python number. This only works for tensors with one element.
-            train_gis += grad_input_sum.item() * y.size(0)
+            train_gis += grad_input_sum.item() * y.size(0)                     # 用来输出
             train_acc += (output.max(1)[1] == y).sum().item()
             train_n += y.size(0)                                               # 已经训练的样本个数
-            print("acc:{}".format(train_acc / train_n))
+            # print("acc:{}".format(train_acc / train_n))
 
             with torch.no_grad():                                              # no grad 为了统计信息
                 grad_norm_x += utils.l2_norm_batch(grad).sum().item()
@@ -295,6 +310,16 @@ def main():
                 train_acc, avg_delta_l2 = train_acc / train_n, avg_delta_l2 / train_n
 
                 model.eval()
+                if args.model == "cnn":
+                    # 获取卷积核并输出
+                    # "_model.0.weight"
+                    # cnn_weights.append(copy.deepcopy(model.named_parameters()["_model.0.weight"].detach().numpy()))
+                    for name, parameters in model.named_parameters():
+                        # print(name, ':', parameters.size())
+                        if name == "_model.0.weight":
+                            cnn_weights.append(copy.deepcopy(parameters.detach().cpu().numpy()))
+                        if name == "_model.0.bias":
+                            cnn_bias.append(copy.deepcopy(parameters.detach().cpu().numpy()))
 
                 test_acc_clean, _, _ = utils.rob_acc(test_batches_fast, model, eps, pgd_alpha, opt, half_prec, 0, 1)                    
                 test_acc_fgsm, test_loss_fgsm, fgsm_deltas = utils.rob_acc(test_batches_fast, model, eps, eps, opt, half_prec, 1, 1, rs=False)      
@@ -372,7 +397,12 @@ def main():
         model.train()
     
     logger.info("Done in {:.2f}m".format((time.time() - start_time) / 60))
-
+    if args.model == "cnn":
+        cnn_weights = np.array(cnn_weights)
+        np.save("npy/cnn_weights", cnn_weights)
+        cnn_bias = np.array(cnn_bias)
+        np.save("npy/cnn_bias", cnn_bias)
+        print("npy文件保存成功")
 
 
 if __name__ == "__main__":

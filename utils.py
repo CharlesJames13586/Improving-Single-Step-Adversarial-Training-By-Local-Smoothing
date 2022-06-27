@@ -75,7 +75,7 @@ def get_lr_schedule(lr_schedule_type, n_epochs, lr_max):
     return lr_schedule
 
 
-# 求下界l和上届u之前的X
+# 求下界l和上界u之间的X
 def clamp(X, l, u, cuda=True):
     if type(l) is not torch.Tensor:
         if cuda:
